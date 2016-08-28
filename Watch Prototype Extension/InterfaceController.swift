@@ -46,8 +46,11 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     @IBOutlet var loadingScreen: WKInterfaceImage!
     
     var profileInfo: Dictionary <String, String> = [:]
-    var contactListInfo: Dictionary<String, Dictionary<String,String>> = [:]
     
+    ///////////////////////////
+    //I deleted this variable
+    //var contactListInfo: Dictionary<String, Dictionary<String,String>> = [:]
+    /////////////////////////// 8/28 9:35AM
     
     private let session = WCSession.defaultSession()
     private var appGroupDefaults = NSUserDefaults(suiteName: "com.pathos.Prototype")!
@@ -385,10 +388,24 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         self.contactListButton.setHidden(false)
         self.toggleProfileUI(hideUI)
         
+        ///////////////////////////
+        
+        //replaced the comment bloack with this code to prevent contactList from continuously being overwritten wiith only the new profile
+        
+        var contactListInfo:NSDictionary = appGroupDefaults.dictionaryForKey("contactListInfo")!
         let contactName = self.profileInfo["name"]
+        contactListInfo.setValue(self.profileInfo, forKey: contactName!)
+        self.appGroupDefaults.setObject(contactListInfo, forKey: "contactListInfo")
+
+        
+        /*let contactName = self.profileInfo["name"]
         
         self.contactListInfo[contactName!] = self.profileInfo
         self.appGroupDefaults.setObject(self.contactListInfo, forKey: "contactListInfo")
+        */
+        /////////////////////////// 8/28 9:35AM
+        
+        
         //save the data that went through as a contact
         print(appGroupDefaults.dictionaryForKey("contactListInfo"))
     }
