@@ -38,17 +38,30 @@ class contactList: WKInterfaceController {
    
     
     func setupTable() {
-        var contactListDict = appGroupDefaults.dictionaryForKey("contactListInfo")
-        var contactsArray: [String]
-        var contacts = contactListDict?.keys
-        //contactsArray = Array(contactListDict?.keys)
-        tableView.setNumberOfRows(contacts!.count, withRowType: "rowController")
+        ////////////////////////////////////
         
-        for(var i = 0; i < contacts!.count; i+=1) {
+        //alphabetixed contactList
+        
+        var contactListDict:NSDictionary = appGroupDefaults.dictionaryForKey("contactListInfo")!
+        let contacts = contactListDict.allKeys
+        var contactsAsStringArr: [String]
+        contactsAsStringArr = (contacts as? [String])!
+        let locale = NSLocale(localeIdentifier: "en")
+        contactsAsStringArr.sort {
+            $0.compare($1, locale: locale) == .OrderedAscending
+        }
+        
+        
+        tableView.setNumberOfRows(contactsAsStringArr.count, withRowType: "rowController")
+        
+        
+        for(var i = 0; i < contactsAsStringArr.count; i+=1) {
+            
+            
             if let row = tableView.rowControllerAtIndex(i) as? rowController {
-                row.contactLabel.setText(contacts as? String)
+                row.contactLabel.setText(contacts[i] as? String)
             }
         }
+        ////////////////////////////////////8/28/16 9:45AM
     }
-    
 }
