@@ -341,11 +341,12 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         self.OccButton.setTitle(final)
         self.profileInfo["occ"] = final
     }
-
+/*
     @IBAction func contctListChecker() {
         self.pathosButton.setHidden(true)
         self.contactListButton.setHidden(true)
     }
+*/
     func audioRecording(){
         
         let duration = NSTimeInterval(Double.infinity)
@@ -473,6 +474,69 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
             }
         })
     }
+////////////////////// Emoji update
+    @IBOutlet var happyButtonOutlet: WKInterfaceButton!
+    @IBOutlet var neutralButtonOutlet: WKInterfaceButton!
+    @IBOutlet var unhappyButtonOutlet: WKInterfaceButton!
+    
+    func toggleContactListUI(value: Bool){
+        
+        self.ConfirmationSettingsLabel.setHidden(value)
+        //self.LabelConfirmSettings.setHidden(value)
+        self.LabelForName.setHidden(value)
+        self.Separator1.setHidden(value)
+        self.NameButton.setHidden(value)
+        self.LabelForOcc.setHidden(value)
+        self.Separator2.setHidden(value)
+        self.OccButton.setHidden(value)
+        self.LabelForEducation.setHidden(value)
+        self.Separator3.setHidden(value)
+        self.EducationButton.setHidden(value)
+        self.LabelForTalkPoints.setHidden(value)
+        self.Separator4.setHidden(value)
+        self.InterestNum1.setHidden(value)
+        self.InterestNum2.setHidden(value)
+        self.InterestNum3.setHidden(value)
+        self.ConfirmButton.setHidden(value)
+        self.DeleteButton.setHidden(value)
+        self.pathosButton.setHidden(value)
+        self.contactListButton.setHidden(value)
+        
+        print(value)
+        print(!value)
+        
+        self.emojiGroup.setHidden(!value)
+        self.TheVibeLabel.setHidden(!value)
+    }
+    
+    // press the contact list button for now as a test. this is code after confirm is pressed in reality
+    // just check if this works for now
+    @IBAction func pressedContList() {
+        let hide: Bool = true
+        toggleContactListUI(hide)
+    }
+    
+    // print happy on happy button if presseed as a test
+    @IBAction func pressedHappy() {
+        profileInfo["Vibe"] = "Happy"
+        happyButtonOutlet.setTitle(profileInfo["Vibe"])
+    }
+    
+    // print neutral on happybutton as a test
+    @IBAction func pressedNeutral() {
+        profileInfo["Vibe"] = "Neutral"
+        happyButtonOutlet.setTitle(profileInfo["Vibe"])
+
+    }
+    
+    // print unhappy on unhappy button as a test
+    @IBAction func pressedUnhappy(){
+        profileInfo["Vibe"] = "Unhappy"
+        unhappyButtonOutlet.setTitle(profileInfo["Vibe"])
+
+    }
+/////////////////////////////
+
     
     @IBAction func pressedEducationButton() {
         self.presentTextInputControllerWithSuggestions(nil, allowedInputMode: WKTextInputMode.Plain, completion: { (results) -> Void in
