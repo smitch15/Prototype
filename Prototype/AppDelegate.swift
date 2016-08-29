@@ -15,17 +15,6 @@ import WatchConnectivity
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate, NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate {
 
-    /*func applicationDidFinishLaunching(application: UIApplication) {
-        if(NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") == false){
-            // app already launched
-        }
-        else{
-            // This is the first launch ever
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "HasLaunchedOnce")
-            NSUserDefaults.standardUserDefaults().synchronize()
-        }
-    }*/
-    
     var window: UIWindow?
     
     let audioPhoneURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("audio", ofType: "wav")!)
@@ -45,6 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate, NSURLS
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         WCSession.defaultSession().delegate = self
         WCSession.defaultSession().activateSession()
+        
+/////////////////////////////////////////////////        
+        self.isAppAlreadyLaunchedOnce()
+///////////////////////////////////////////////// 8/29/2016 11:34 AM
         
         return true
     }
@@ -760,5 +753,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate, NSURLS
     func sessionWatchStateDidChange(session: WCSession) {
         print("Watch state changed")
     }
+    
+///////////////////////////////////////////////////////
+    func isAppAlreadyLaunchedOnce()->Bool{
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if(defaults.stringForKey("isAppAlreadyLaunchedOnce") != nil){
+            print("App already launched")
+            
+            return true
+        }else{
+            //self.instatiateWelcome()
+            // above call to function would instatiate the view controller that contains the tutorial video along with the prompt too enter personal info
+            
+            defaults.setBool(true, forKey: "isAppAlreadyLaunchedOnce")
+            print("App launched first time")
+            return false
+        }
+    }
+/////////////////////////////////////////////////////// 8/29/2016 11:31AM
     
 }
