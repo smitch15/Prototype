@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="10032"/>
@@ -8,17 +8,22 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch_Prototype_Extension" customModuleProvider="target">
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch_Prototype" customModuleProvider="target">
                     <items>
-                        <label width="1" alignment="left" hidden="YES" text="Confirm Contact Info" textAlignment="center" baselineAdjustment="alignCenters" numberOfLines="2" id="Lma-bu-WrY"/>
+                        <label width="1" alignment="left" hidden="YES" text="Confirm Contact Info" textAlignment="center" baselineAdjustment="alignCenters" numberOfLines="2" id="Lma-bu-WrY">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="font" type="italicSystem" pointSize="16"/>
+                        </label>
+                        <separator alignment="left" hidden="YES" id="cww-z1-IMb" userLabel="SeparatorForConfirmSettings">
+                            <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </separator>
                         <label alignment="left" hidden="YES" text="Name" id="g7Y-KA-Ki8"/>
                         <separator alignment="left" hidden="YES" id="K1E-3Q-owm">
                             <color key="color" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </separator>
-                        <label width="115.5" height="34.5" alignment="center" hidden="YES" text="The Vibe" textAlignment="center" id="QGe-ww-qhh"/>
                         <button width="1" alignment="left" hidden="YES" title="NameButton" id="FEc-fg-Bgc">
                             <connections>
-                                <action selector="pressedName" destination="AgC-eL-Hgc" id="bcv-Hg-EF0"/>
+                                <action selector="pressedName" destination="AgC-eL-Hgc" id="DNZ-JL-Yye"/>
                             </connections>
                         </button>
                         <label alignment="left" hidden="YES" text="Occupation" id="JKQ-PZ-kPT"/>
@@ -27,7 +32,7 @@
                         </separator>
                         <button width="1" alignment="left" hidden="YES" title="OccButton" id="pxH-az-8Zf">
                             <connections>
-                                <action selector="pressedOcc" destination="AgC-eL-Hgc" id="Pe8-i2-9q1"/>
+                                <action selector="pressedOcc" destination="AgC-eL-Hgc" id="Uif-2Q-gTp"/>
                             </connections>
                         </button>
                         <label alignment="left" hidden="YES" text="Education" id="6TL-LF-VeJ"/>
@@ -37,7 +42,7 @@
                         <button width="1" alignment="left" hidden="YES" title="EducationButton" id="aXQ-3B-htP">
                             <fontDescription key="font" type="system" pointSize="14"/>
                             <connections>
-                                <action selector="pressedEducationButton" destination="AgC-eL-Hgc" id="sVZ-vJ-NIi"/>
+                                <action selector="pressedEducationButton" destination="AgC-eL-Hgc" id="DCh-N3-GdE"/>
                             </connections>
                         </button>
                         <label width="133.5" alignment="left" hidden="YES" text="Talking Points" textAlignment="left" id="Sso-S3-ePe"/>
@@ -53,7 +58,7 @@
                                 </items>
                             </group>
                             <connections>
-                                <action selector="pressedInt1" destination="AgC-eL-Hgc" id="9KD-Ni-qbC"/>
+                                <action selector="pressedInt1" destination="AgC-eL-Hgc" id="0eL-VO-Rej"/>
                             </connections>
                         </button>
                         <button alignment="left" hidden="YES" id="SR4-Lx-Zx2">
@@ -65,7 +70,7 @@
                                 </items>
                             </group>
                             <connections>
-                                <action selector="pressedInt2" destination="AgC-eL-Hgc" id="o3V-XX-jcb"/>
+                                <action selector="pressedInt2" destination="AgC-eL-Hgc" id="l2Y-6u-6v2"/>
                             </connections>
                         </button>
                         <button alignment="left" hidden="YES" id="sU8-Rd-PlP">
@@ -77,7 +82,7 @@
                                 </items>
                             </group>
                             <connections>
-                                <action selector="pressedInt3" destination="AgC-eL-Hgc" id="uzg-jC-din"/>
+                                <action selector="pressedInt3" destination="AgC-eL-Hgc" id="WTH-vf-VIw"/>
                             </connections>
                         </button>
                         <button width="1" alignment="left" hidden="YES" title="Confirm" id="r55-zx-aVC">
@@ -85,7 +90,7 @@
                             <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" type="system" pointSize="25"/>
                             <connections>
-                                <action selector="pressedConfirm" destination="AgC-eL-Hgc" id="VoU-Id-t5N"/>
+                                <action selector="pressedConfirm" destination="AgC-eL-Hgc" id="mGI-yN-fMV"/>
                             </connections>
                         </button>
                         <button width="1" alignment="right" hidden="YES" title="Delete" id="eWi-gv-Ufo">
@@ -93,49 +98,24 @@
                             <color key="backgroundColor" red="1" green="0.041867554719999998" blue="0.056003589020000001" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" type="system" pointSize="25"/>
                             <connections>
-                                <action selector="pressedDelete" destination="AgC-eL-Hgc" id="lWQ-2e-l6R"/>
+                                <action selector="pressedDelete" destination="AgC-eL-Hgc" id="eQy-IQ-EgZ"/>
                             </connections>
                         </button>
-                        <group width="1" height="32" alignment="left" hidden="YES" id="zeq-Fe-wNg">
-                            <items>
-                                <button width="35" height="36.5" alignment="left" backgroundImage="HappyImage" id="FEt-dl-uoY">
-                                    <connections>
-                                        <action selector="pressedHappy" destination="AgC-eL-Hgc" id="XAF-Y6-5OP"/>
-                                    </connections>
-                                </button>
-                                <button width="38" height="32" alignment="center" backgroundImage="NeutralImage" id="tMJ-gW-DaW">
-                                    <connections>
-                                        <action selector="pressedNeutral" destination="AgC-eL-Hgc" id="cum-Zg-Ypo"/>
-                                    </connections>
-                                </button>
-                                <button width="38" height="33" alignment="center" backgroundImage="UpsetImage" id="a3S-pc-lN6">
-                                    <connections>
-                                        <action selector="pressedUnhappy" destination="AgC-eL-Hgc" id="icb-E8-Vi9"/>
-                                    </connections>
-                                </button>
-                            </items>
-                        </group>
-                        <imageView alignment="left" hidden="YES" contentMode="scaleAspectFit" id="ZCK-wI-HlF"/>
                         <button height="108.5" alignment="left" title=" " backgroundImage="Pathos Logo 1" id="kHV-qU-wub">
                             <connections>
                                 <action selector="buttonPressed" destination="AgC-eL-Hgc" id="bw4-Nh-PT9"/>
                             </connections>
                         </button>
+                        <imageView alignment="left" hidden="YES" contentMode="scaleAspectFit" id="ZCK-wI-HlF"/>
                         <button width="1" alignment="left" title="Contact List" id="t9u-Nb-jCq">
                             <color key="titleColor" red="0.87450980392156863" green="0.87450980392156863" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" red="0.41960784313725491" green="0.0" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" type="system" weight="medium" pointSize="22"/>
                             <connections>
-                                <action selector="pressedContList" destination="AgC-eL-Hgc" id="xZe-9H-IKG"/>
+                                <action selector="contctListChecker" destination="AgC-eL-Hgc" id="amP-NJ-DDg"/>
+                                <segue destination="fE1-RR-VTF" kind="push" id="a4L-IQ-In9"/>
                             </connections>
                         </button>
-                        <label width="1" alignment="left" hidden="YES" text="Contact List" textAlignment="center" id="6uL-Tx-hjM">
-                            <fontDescription key="font" type="boldSystem" pointSize="18"/>
-                        </label>
-                        <separator alignment="left" hidden="YES" id="Ygb-l0-eEE">
-                            <color key="color" red="0.95127833210000001" green="0.37017731129999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </separator>
-                        <button width="69" height="28" alignment="left" hidden="YES" backgroundImage="BackButton" id="bPe-s6-KxW"/>
                     </items>
                     <connections>
                         <outlet property="ConfirmButton" destination="r55-zx-aVC" id="XIb-BD-RMJ"/>
@@ -148,6 +128,7 @@
                         <outlet property="InterestNum1" destination="0gX-zN-OF0" id="Z36-zq-cUF"/>
                         <outlet property="InterestNum2" destination="SR4-Lx-Zx2" id="NC7-qv-yY0"/>
                         <outlet property="InterestNum3" destination="sU8-Rd-PlP" id="7mm-nh-qOo"/>
+                        <outlet property="LabelConfirmSettings" destination="cww-z1-IMb" id="eJ6-Xy-8qu"/>
                         <outlet property="LabelForEducation" destination="6TL-LF-VeJ" id="cDB-15-dId"/>
                         <outlet property="LabelForName" destination="g7Y-KA-Ki8" id="nw0-9W-57H"/>
                         <outlet property="LabelForOcc" destination="JKQ-PZ-kPT" id="mbe-i4-8Pl"/>
@@ -158,91 +139,61 @@
                         <outlet property="Separator2" destination="WMb-GW-2iW" id="wb7-tW-bgO"/>
                         <outlet property="Separator3" destination="SAj-1G-cfc" id="s44-CI-TWW"/>
                         <outlet property="Separator4" destination="efT-sz-rrl" id="In4-eB-So5"/>
-                        <outlet property="TheVibeLabel" destination="QGe-ww-qhh" id="Zis-WW-jpa"/>
-                        <outlet property="backButton" destination="bPe-s6-KxW" id="XB6-aU-DW2"/>
-                        <outlet property="contactListButton" destination="6uL-Tx-hjM" id="1YB-oW-rpb"/>
-                        <outlet property="contactListSeparator" destination="Ygb-l0-eEE" id="Wie-R0-PyJ"/>
-                        <outlet property="emojiGroup" destination="zeq-Fe-wNg" id="EaT-hS-hOv"/>
-                        <outlet property="happyButtonOutlet" destination="FEt-dl-uoY" id="AXm-99-IXX"/>
+                        <outlet property="contactListButton" destination="t9u-Nb-jCq" id="NOo-cC-dGy"/>
                         <outlet property="loadingScreen" destination="ZCK-wI-HlF" id="u18-D1-TNZ"/>
-                        <outlet property="neutralButtonOutlet" destination="tMJ-gW-DaW" id="xj9-Cb-WVY"/>
                         <outlet property="pathosButton" destination="kHV-qU-wub" id="I2H-Tx-DRu"/>
-                        <outlet property="unhappyButtonOutlet" destination="a3S-pc-lN6" id="xDd-mU-Lm4"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="349"/>
+            <point key="canvasLocation" x="95" y="260"/>
         </scene>
-        <!--Interface Controller-->
-        <scene sceneID="19X-kf-B2r">
+        <!--Contact List-->
+        <scene sceneID="oza-SX-56K">
             <objects>
-                <controller id="icB-ny-CwG">
+                <controller id="fE1-RR-VTF" customClass="contactList" customModule="Watch_Prototype_Extension">
                     <items>
-                        <label width="136" height="33.5" alignment="left" text="Feelings?" textAlignment="center" id="I9S-mb-hNC">
-                            <color key="textColor" red="0.95127833210000001" green="0.37017731129999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <label width="1" alignment="left" text="Contact List" textAlignment="center" id="6uL-Tx-hjM">
+                            <fontDescription key="font" type="boldSystem" pointSize="18"/>
                         </label>
-                        <group width="1" alignment="left" id="7mY-bw-1ni"/>
+                        <separator alignment="left" id="Ygb-l0-eEE">
+                            <color key="color" red="0.95127833210000001" green="0.37017731129999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <table alignment="left" id="2Ax-y8-sFo">
+                            <items>
+                                <tableRow identifier="rowController" id="rX6-zk-16b" customClass="rowController" customModule="Watch_Prototype_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="DMy-5b-6cH">
+                                        <items>
+                                            <label height="25" alignment="center" text="contactLabel" textAlignment="center" id="zbp-71-MJl">
+                                                <fontDescription key="font" type="system" pointSize="15"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="contactLabel" destination="zbp-71-MJl" id="jod-fv-cZt"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <label width="0.78000000000000003" alignment="center" verticalAlignment="bottom" alpha="0.29999999999999999" text="Keep using Pathos to add more contacts!" textAlignment="center" numberOfLines="5" id="YxR-CS-nf2">
+                            <color key="textColor" red="0.95127833210000001" green="0.37017731129999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="italicSystem" pointSize="16"/>
+                        </label>
                     </items>
+                    <connections>
+                        <outlet property="contactListSeparator" destination="Ygb-l0-eEE" id="upN-EM-tXO"/>
+                        <outlet property="headerContactList" destination="6uL-Tx-hjM" id="GOQ-V0-sSk"/>
+                        <outlet property="tableView" destination="2Ax-y8-sFo" id="gRT-ag-46n"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="646"/>
+            <point key="canvasLocation" x="95" y="556"/>
         </scene>
         <!--Interface Controller-->
-        <scene sceneID="gAZ-Wo-rNh">
+        <scene sceneID="UzQ-Um-aUc">
             <objects>
-                <controller id="l7w-vP-TBr" customClass="InterfaceController" customModule="Watch_Prototype_Extension" customModuleProvider="target">
-                    <items>
-                        <label width="136" height="40.5" alignment="left" text="Confirm Contact Info" textAlignment="center" baselineAdjustment="alignCenters" numberOfLines="2" id="Q8t-mu-bg8"/>
-                        <label alignment="left" text="Name" id="Eb4-2j-nbo"/>
-                        <separator alignment="left" id="8c3-1D-t8W">
-                            <color key="color" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </separator>
-                        <button width="1" alignment="left" title="NameButton" id="3K9-Jz-I2p"/>
-                        <label alignment="left" text="Occupation" id="hP2-3o-8Ej"/>
-                        <separator alignment="left" id="782-YM-3Pq">
-                            <color key="color" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </separator>
-                        <button width="1" alignment="left" title="OccButton" id="5hh-iA-xPi">
-                            <connections>
-                                <action selector="pressedOcc" destination="l7w-vP-TBr" id="Ho8-8Z-6BA"/>
-                            </connections>
-                        </button>
-                        <label width="133.5" alignment="left" text="Talking Points" textAlignment="left" id="1Mf-W9-RbK"/>
-                        <separator alignment="left" id="EHL-Bu-Gae">
-                            <color key="color" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </separator>
-                        <button alignment="left" id="yVL-zj-Y6k">
-                            <group key="contentGroup" width="1" alignment="left" id="tab-pJ-l9c">
-                                <items>
-                                    <label width="136" height="38.5" alignment="left" text="Interest Num 1" textAlignment="center" numberOfLines="4" id="lcs-uO-ZVz">
-                                        <fontDescription key="font" type="system" pointSize="15"/>
-                                    </label>
-                                </items>
-                            </group>
-                        </button>
-                        <button width="1" alignment="left" title="Interest Num 2" id="B9f-h9-srU"/>
-                        <button width="1" alignment="left" title="Interest Num 3" id="8Tx-Qu-nbi"/>
-                        <label alignment="left" text="Education" id="5Gh-Se-3Wm"/>
-                        <separator alignment="left" id="6vW-3k-3MD">
-                            <color key="color" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </separator>
-                        <button width="1" alignment="left" title="EducationButton" id="wnD-26-cQu">
-                            <fontDescription key="font" type="system" pointSize="14"/>
-                        </button>
-                        <button width="1" alignment="left" title="Confirm" id="anJ-XS-z3l">
-                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="font" type="system" pointSize="25"/>
-                        </button>
-                        <button width="1" alignment="right" title="Delete" id="dc8-Qr-agq">
-                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="backgroundColor" red="1" green="0.041867554719999998" blue="0.056003589020000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="font" type="system" pointSize="25"/>
-                        </button>
-                    </items>
-                </controller>
+                <controller id="VAl-wV-0cy"/>
             </objects>
-            <point key="canvasLocation" x="468" y="432.5"/>
+            <point key="canvasLocation" x="339" y="556"/>
         </scene>
     </scenes>
 </document>
