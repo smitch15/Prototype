@@ -45,6 +45,15 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     
     @IBOutlet var loadingScreen: WKInterfaceImage!
     
+    //////////////////////////////
+    @IBOutlet var TheVibeLabel: WKInterfaceLabel!
+    @IBOutlet var emojiGroup: WKInterfaceGroup!
+    @IBOutlet var happyButtonOutlet: WKInterfaceButton!
+    @IBOutlet var neutralButtonOutlet: WKInterfaceButton!
+    @IBOutlet var unhappyButtonOutlet: WKInterfaceButton!
+    @IBOutlet var maybeLaterButton: WKInterfaceButton!
+    //////////////////////////////9/1/2016
+    
     var profileInfo: Dictionary <String, String> = [:]
     
     ///////////////////////////
@@ -389,8 +398,16 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         self.contactListButton.setHidden(false)
         self.toggleProfileUI(hideUI)
         
-        ///////////////////////////
+        /////
+        self.emojiGroup.setHidden(false)
+        self.TheVibeLabel.setHidden(false)
+        self.maybeLaterButton.setHidden(false)
+        ////
         
+        ///////////////////////////delete below
+        /*
+        self.pathosButton.setHidden(false)
+        self.contactListButton.setHidden(false)
         //replaced the comment bloack with this code to prevent contactList from continuously being overwritten wiith only the new profile
         
         var contactListInfo:NSDictionary = appGroupDefaults.dictionaryForKey("contactListInfo")!
@@ -404,7 +421,8 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         self.contactListInfo[contactName!] = self.profileInfo
         self.appGroupDefaults.setObject(self.contactListInfo, forKey: "contactListInfo")
         */
-        /////////////////////////// 8/28 9:35AM
+        */
+        /////////////////////////// 9/1/2016
         
         
         //save the data that went through as a contact
@@ -520,12 +538,18 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     @IBAction func pressedHappy() {
         profileInfo["Vibe"] = "Happy"
         happyButtonOutlet.setTitle(profileInfo["Vibe"])
+/////////////////////////////////////////////////////////
+        self.saveContactList()
+/////////////////////////////////////////////////////////9/1/2016
     }
     
     // print neutral on happybutton as a test
     @IBAction func pressedNeutral() {
         profileInfo["Vibe"] = "Neutral"
         happyButtonOutlet.setTitle(profileInfo["Vibe"])
+/////////////////////////////////////////////////////////
+        self.saveContactList()
+/////////////////////////////////////////////////////////9/1/2016
 
     }
     
@@ -533,7 +557,9 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     @IBAction func pressedUnhappy(){
         profileInfo["Vibe"] = "Unhappy"
         unhappyButtonOutlet.setTitle(profileInfo["Vibe"])
-
+/////////////////////////////////////////////////////////
+        self.saveContactList()
+/////////////////////////////////////////////////////////9/1/2016
     }
 /////////////////////////////
 
@@ -548,6 +574,28 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         })
     }
     
-    
+////////////////////////////////////////
+
+@IBAction func maybeLater(){
+        self.saveContactList()
+        
+        self.pathosButton.setHidden(false)
+        self.contactListButton.setHidden(false)
+        self.emojiGroup.setHidden(true)
+        self.TheVibeLabel.setHidden(true)
+        self.maybeLaterButton.setHidden(true)
+    }
+
+func saveContactList(){
+        var contactListInfo = self.appGroupDefaults.dictionaryForKey("contactListInfo")!
+        let contactName = self.profileInfo["name"]
+        contactListInfo.updateValue(self.profileInfo, forKey: contactName!)
+        self.appGroupDefaults.setObject(contactListInfo, forKey: "contactListInfo")
+        //save the data that went through as a contact
+        print(appGroupDefaults.dictionaryForKey("contactListInfo"))
+        self.session.transferUserInfo([contactName!:self.profileInfo])
+    }
+
+////////////////////////////////////////9/1/2016
 
 }
