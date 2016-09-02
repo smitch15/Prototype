@@ -455,8 +455,16 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         
         
         
-        ///////////////////////////
+        /////
+        self.emojiGroup.setHidden(false)
+        self.TheVibeLabel.setHidden(false)
+        self.maybeLaterButton.setHidden(false)
+        ////
         
+        ///////////////////////////delete below
+        /*
+        self.pathosButton.setHidden(false)
+        self.contactListButton.setHidden(false)
         //replaced the comment bloack with this code to prevent contactList from continuously being overwritten wiith only the new profile
         
         var contactListInfo:NSDictionary = appGroupDefaults.dictionaryForKey("contactListInfo")!
@@ -470,7 +478,8 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         self.contactListInfo[contactName!] = self.profileInfo
         self.appGroupDefaults.setObject(self.contactListInfo, forKey: "contactListInfo")
         */
-        /////////////////////////// 8/28 9:35AM
+        */
+        /////////////////////////// 9/1/2016
         
         
         //save the data that went through as a contact
@@ -586,12 +595,18 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     @IBAction func pressedHappy() {
         profileInfo["Vibe"] = "Happy"
         happyButtonOutlet.setTitle(profileInfo["Vibe"])
+/////////////////////////////////////////////////////////
+        self.saveContactList()
+/////////////////////////////////////////////////////////9/1/2016
     }
     
     // print neutral on happybutton as a test
     @IBAction func pressedNeutral() {
         profileInfo["Vibe"] = "Neutral"
         happyButtonOutlet.setTitle(profileInfo["Vibe"])
+/////////////////////////////////////////////////////////
+        self.saveContactList()
+/////////////////////////////////////////////////////////9/1/2016
 
     }
     
@@ -599,7 +614,9 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     @IBAction func pressedUnhappy(){
         profileInfo["Vibe"] = "Unhappy"
         unhappyButtonOutlet.setTitle(profileInfo["Vibe"])
-
+/////////////////////////////////////////////////////////
+        self.saveContactList()
+/////////////////////////////////////////////////////////9/1/2016
     }
 /////////////////////////////
 
