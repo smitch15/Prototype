@@ -9,7 +9,7 @@
 import WatchKit
 import Foundation
 import WatchConnectivity
-
+// comment added
 class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate, WCSessionDelegate {
 
     
@@ -158,36 +158,6 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         
         }
         
-    }
-    
-    func toggleContactListUI(value: Bool){
-        
-        self.ConfirmationSettingsLabel.setHidden(value)
-        //self.LabelConfirmSettings.setHidden(value)
-        self.LabelForName.setHidden(value)
-        self.Separator1.setHidden(value)
-        self.NameButton.setHidden(value)
-        self.LabelForOcc.setHidden(value)
-        self.Separator2.setHidden(value)
-        self.OccButton.setHidden(value)
-        self.LabelForEducation.setHidden(value)
-        self.Separator3.setHidden(value)
-        self.EducationButton.setHidden(value)
-        self.LabelForTalkPoints.setHidden(value)
-        self.Separator4.setHidden(value)
-        self.InterestNum1.setHidden(value)
-        self.InterestNum2.setHidden(value)
-        self.InterestNum3.setHidden(value)
-        self.ConfirmButton.setHidden(value)
-        self.DeleteButton.setHidden(value)
-        self.pathosButton.setHidden(value)
-        self.contactListButton.setHidden(value)
-        
-        print(value)
-        print(!value)
-        
-        self.emojiGroup.setHidden(!value)
-        self.TheVibeLabel.setHidden(!value)
     }
     
 
