@@ -33,15 +33,14 @@ class ContactListInterface: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-    
-    
 
-    override func table(table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int) {
-        var contactListDict:NSDictionary = appGroupDefaults.dictionaryForKey("contactListInfo")!
+    // this function passes the profileInfo dictionary from the contactList InterfaceController to the profileInfoInterfaceController
+    override func contextForSegueWithIdentifier(ContactListToProfile: String, inTable tableView: WKInterfaceTable, rowIndex: Int) -> AnyObject? {
+        var contactListDict: NSDictionary = appGroupDefaults.dictionaryForKey("contactListInfo")!
         let contacts = contactListDict.allKeys
         var contactsAsStringArr: [String]
         contactsAsStringArr = (contacts as? [String])!
-        self.pushControllerWithName("contactListIC", context: contacts[rowIndex])
+        return contactListDict[contactsAsStringArr[rowIndex]]
     }
     
     func setupTable() {

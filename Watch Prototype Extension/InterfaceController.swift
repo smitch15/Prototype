@@ -54,6 +54,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
 
     var profileInfo: Dictionary <String, String> = [:]
     
+    @IBOutlet var maybeLaterButton: WKInterfaceButton!
     ///////////////////////////
     //I deleted this variable
     //var contactListInfo: Dictionary<String, Dictionary<String,String>> = [:]
@@ -159,9 +160,6 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         }
         
     }
-    
-
-
     
     
     func setProfileVisual(){
@@ -423,8 +421,6 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     @IBAction func pressedConfirm(){
         let hideUI = true
         
-        
-        
         /////
         self.emojiGroup.setHidden(false)
         self.TheVibeLabel.setHidden(false)
@@ -563,7 +559,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     
     // print happy on happy button if presseed as a test
     @IBAction func pressedHappy() {
-        profileInfo["Vibe"] = "Happy"
+        profileInfo["vibe"] = "Happy"
         happyButtonOutlet.setTitle(profileInfo["Vibe"])
 /////////////////////////////////////////////////////////
         self.saveContactList()
@@ -572,17 +568,16 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     
     // print neutral on happybutton as a test
     @IBAction func pressedNeutral() {
-        profileInfo["Vibe"] = "Neutral"
+        profileInfo["vibe"] = "Neutral"
         happyButtonOutlet.setTitle(profileInfo["Vibe"])
 /////////////////////////////////////////////////////////
         self.saveContactList()
 /////////////////////////////////////////////////////////9/1/2016
-
     }
     
     // print unhappy on unhappy button as a test
     @IBAction func pressedUnhappy(){
-        profileInfo["Vibe"] = "Unhappy"
+        profileInfo["vibe"] = "Unhappy"
         unhappyButtonOutlet.setTitle(profileInfo["Vibe"])
 /////////////////////////////////////////////////////////
         self.saveContactList()
@@ -601,6 +596,15 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         })
     }
     
+    func saveContactList(){
+        var contactListInfo = self.appGroupDefaults.dictionaryForKey("contactListInfo")!
+        let contactName = self.profileInfo["name"]
+        contactListInfo.updateValue(self.profileInfo, forKey: contactName!)
+        self.appGroupDefaults.setObject(contactListInfo, forKey: "contactListInfo")
+        //save the data that went through as a contact
+        print(appGroupDefaults.dictionaryForKey("contactListInfo"))
+        self.session.transferUserInfo([contactName!:self.profileInfo])
+    }
 
 
 
