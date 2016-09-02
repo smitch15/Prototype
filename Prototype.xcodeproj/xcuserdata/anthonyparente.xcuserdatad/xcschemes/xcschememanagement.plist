@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Watch Prototype.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>6752C1BF1D5181A0001453E3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6752C1D61D5181B3001453E3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
