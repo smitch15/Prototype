@@ -9,7 +9,7 @@
 import Foundation
 import WatchKit
 
-class contactList: WKInterfaceController {
+class ContactListInterface: WKInterfaceController {
     
     @IBOutlet var headerContactList: WKInterfaceLabel!
     @IBOutlet var contactListSeparator: WKInterfaceSeparator!
@@ -35,7 +35,14 @@ class contactList: WKInterfaceController {
     }
     
     
-   
+
+    override func table(table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int) {
+        var contactListDict:NSDictionary = appGroupDefaults.dictionaryForKey("contactListInfo")!
+        let contacts = contactListDict.allKeys
+        var contactsAsStringArr: [String]
+        contactsAsStringArr = (contacts as? [String])!
+        self.pushControllerWithName("contactListIC", context: contacts[rowIndex])
+    }
     
     func setupTable() {
         ////////////////////////////////////
@@ -56,12 +63,11 @@ class contactList: WKInterfaceController {
         
         
         for(var i = 0; i < contactsAsStringArr.count; i+=1) {
-            
-            
             if let row = tableView.rowControllerAtIndex(i) as? rowController {
                 row.contactLabel.setText(contacts[i] as? String)
             }
         }
+        
         ////////////////////////////////////8/28/16 9:45AM
     }
 }
