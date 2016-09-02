@@ -12,7 +12,6 @@ import WatchConnectivity
 // comment added
 class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate, WCSessionDelegate {
 
-    
     let audioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("audioFile", ofType: "wav")!)
     let arrayURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("array", ofType: "txt")!)
     
@@ -59,7 +58,6 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     //I deleted this variable
     //var contactListInfo: Dictionary<String, Dictionary<String,String>> = [:]
     /////////////////////////// 8/28 9:35AM
-    
     private let session = WCSession.defaultSession()
     private var appGroupDefaults = NSUserDefaults(suiteName: "com.pathos.Prototype")!
     
