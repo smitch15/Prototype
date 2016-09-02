@@ -12,6 +12,7 @@ import WatchConnectivity
 
 class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate, WCSessionDelegate {
 
+    
     let audioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("audioFile", ofType: "wav")!)
     let arrayURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("array", ofType: "txt")!)
     
@@ -31,7 +32,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     
     @IBOutlet var processingLabel: WKInterfaceLabel!
     @IBOutlet var pathosButton: WKInterfaceButton!
-    @IBOutlet var contactListButton: WKInterfaceButton!
+    @IBOutlet var contactListButton: WKInterfaceLabel!
     @IBOutlet var ConfirmationSettingsLabel: WKInterfaceLabel!
     @IBOutlet var LabelConfirmSettings: WKInterfaceSeparator!
     @IBOutlet var LabelForName: WKInterfaceLabel!
@@ -42,15 +43,22 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     @IBOutlet var Separator2: WKInterfaceSeparator!
     @IBOutlet var Separator3: WKInterfaceSeparator!
     @IBOutlet var Separator4: WKInterfaceSeparator!
+
+    @IBOutlet var contactListSeparator: WKInterfaceSeparator!
+    @IBOutlet var backButton: WKInterfaceButton!
     
+    @IBOutlet var TheVibeLabel: WKInterfaceLabel!
+    var emojiArray: [UIImage] = []
+        @IBOutlet var emojiGroup: WKInterfaceGroup!
     @IBOutlet var loadingScreen: WKInterfaceImage!
-    
+
     var profileInfo: Dictionary <String, String> = [:]
     var contactListInfo: Dictionary<String, Dictionary<String,String>> = [:]
     
     
     private let session = WCSession.defaultSession()
     private var appGroupDefaults = NSUserDefaults(suiteName: "com.pathos.Prototype")!
+    
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -60,11 +68,39 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        WCSession.defaultSession().delegate = self
-        WCSession.defaultSession().activateSession()
+
+        
+        //WCSession.defaultSession().delegate = self
+        //WCSession.defaultSession().activateSession()
     }
 
+/*
+    @IBOutlet var happyButtonOutlet: WKInterfaceButton!
+    @IBOutlet var neutralButtonOutlet: WKInterfaceButton!
+    @IBOutlet var unhappyButtonOutlet: WKInterfaceButton!
     
+    @IBAction func pressedContList() {
+        let hide: Bool = true
+        toggleContactListUI(hide)
+    }
+    
+    @IBAction func pressedHappy() {
+        profileInfo["Vibe"] = "Happy"
+        happyButtonOutlet.setTitle(profileInfo["Vibe"])
+    }
+    
+    @IBAction func pressedNeutral() {
+        profileInfo["Vibe"] = "Neutral"
+        happyButtonOutlet.setTitle(profileInfo["Vibe"])
+
+    }
+    
+    @IBAction func pressedUnhappy(){
+        profileInfo["Vibe"] = "Unhappy"
+        unhappyButtonOutlet.setTitle(profileInfo["Vibe"])
+
+    }
+    */
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
@@ -72,11 +108,11 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
 
     @IBAction func buttonPressed() {
         print("pressed")
+
         self.audioRecording()
         
     }
     
- 
     func session(session: WCSession, didReceiveFile file: WCSessionFile) {
         
         let hideUI = false
@@ -91,7 +127,6 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         
         
         //let masterArray = NSMutableArray(contentsOfURL: self.arrayURL)
-
     }
     
     func toggleProfileUI(value:Bool){
@@ -121,6 +156,39 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         }
         
     }
+    
+    func toggleContactListUI(value: Bool){
+        
+        self.ConfirmationSettingsLabel.setHidden(value)
+        //self.LabelConfirmSettings.setHidden(value)
+        self.LabelForName.setHidden(value)
+        self.Separator1.setHidden(value)
+        self.NameButton.setHidden(value)
+        self.LabelForOcc.setHidden(value)
+        self.Separator2.setHidden(value)
+        self.OccButton.setHidden(value)
+        self.LabelForEducation.setHidden(value)
+        self.Separator3.setHidden(value)
+        self.EducationButton.setHidden(value)
+        self.LabelForTalkPoints.setHidden(value)
+        self.Separator4.setHidden(value)
+        self.InterestNum1.setHidden(value)
+        self.InterestNum2.setHidden(value)
+        self.InterestNum3.setHidden(value)
+        self.ConfirmButton.setHidden(value)
+        self.DeleteButton.setHidden(value)
+        self.pathosButton.setHidden(value)
+        self.contactListButton.setHidden(value)
+        
+        print(value)
+        print(!value)
+        
+        self.emojiGroup.setHidden(!value)
+        self.TheVibeLabel.setHidden(!value)
+    }
+    
+
+
     
     
     func setProfileVisual(){
@@ -381,9 +449,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     @IBAction func pressedConfirm(){
         let hideUI = true
         
-        self.pathosButton.setHidden(false)
-        self.contactListButton.setHidden(false)
-        self.toggleProfileUI(hideUI)
+        
         
         let contactName = self.profileInfo["name"]
         
@@ -467,6 +533,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         })
     }
     
-    
+
+
 
 }

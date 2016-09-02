@@ -23,8 +23,8 @@
 		6752C2051D51870D001453E3 /* audioFile.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6752C2041D51870D001453E3 /* audioFile.wav */; };
 		67FAD4191D6F6F3400D9952C /* contactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FAD4181D6F6F3400D9952C /* contactList.swift */; };
 		67FAD41D1D6F7AF000D9952C /* rowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FAD41C1D6F7AF000D9952C /* rowController.swift */; };
-		B0C589921D7206D4008CCC08 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0C589911D7206D4008CCC08 /* Interface.storyboard */; };
-		B0C589941D7206FB008CCC08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0C589931D7206FB008CCC08 /* Assets.xcassets */; };
+		B03BD1871D73CD5300BAACD9 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B06193F41D72149A006D3747 /* Interface.storyboard */; };
+		B06193F71D7214A6006D3747 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B06193F61D7214A6006D3747 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,8 +92,8 @@
 		67FAD4181D6F6F3400D9952C /* contactList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contactList.swift; sourceTree = "<group>"; };
 		67FAD41C1D6F7AF000D9952C /* rowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rowController.swift; sourceTree = "<group>"; };
 		67FAD41E1D706D3100D9952C /* Watch Prototype Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Watch Prototype Extension.entitlements"; sourceTree = "<group>"; };
-		B0C589911D7206D4008CCC08 /* Interface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Interface.storyboard; path = ../../Interface.storyboard; sourceTree = "<group>"; };
-		B0C589931D7206FB008CCC08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../Assets.xcassets; sourceTree = "<group>"; };
+		B06193F41D72149A006D3747 /* Interface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Interface.storyboard; path = ../../../Downloads/Interface.storyboard; sourceTree = "<group>"; };
+		B06193F61D7214A6006D3747 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../Downloads/Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,8 +152,8 @@
 		6752C1D81D5181B3001453E3 /* Watch Prototype */ = {
 			isa = PBXGroup;
 			children = (
-				B0C589911D7206D4008CCC08 /* Interface.storyboard */,
-				B0C589931D7206FB008CCC08 /* Assets.xcassets */,
+				B06193F41D72149A006D3747 /* Interface.storyboard */,
+				B06193F61D7214A6006D3747 /* Assets.xcassets */,
 				6752C1DE1D5181B3001453E3 /* Info.plist */,
 			);
 			path = "Watch Prototype";
@@ -305,8 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0C589941D7206FB008CCC08 /* Assets.xcassets in Resources */,
-				B0C589921D7206D4008CCC08 /* Interface.storyboard in Resources */,
+				B06193F71D7214A6006D3747 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B03BD1871D73CD5300BAACD9 /* Interface.storyboard in Resources */,
 				6752C1F11D5181B3001453E3 /* Assets.xcassets in Resources */,
 				6745EA3F1D554972005B51ED /* array.txt in Resources */,
 				6752C2051D51870D001453E3 /* audioFile.wav in Resources */,
