@@ -521,13 +521,19 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     //////////////////////////////
 
     func saveContactList(){
-        var contactListInfo = self.appGroupDefaults.dictionaryForKey("contactListInfo")!
-        let contactName = self.profileInfo["name"]
-        contactListInfo.updateValue(self.profileInfo, forKey: contactName!)
-        self.appGroupDefaults.setObject(contactListInfo, forKey: "contactListInfo")
-        //save the data that went through as a contact
-        print(appGroupDefaults.dictionaryForKey("contactListInfo"))
-        self.session.transferUserInfo([contactName!:self.profileInfo])
+        if(self.appGroupDefaults.dictionaryForKey("contactListInfo") != nil){
+            var contactListInfo = self.appGroupDefaults.dictionaryForKey("contactListInfo")!
+            let contactName = self.profileInfo["name"]
+            contactListInfo.updateValue(self.profileInfo, forKey: contactName!)
+            self.appGroupDefaults.setObject(contactListInfo, forKey: "contactListInfo")
+            //save the data that went through as a contact
+            print(appGroupDefaults.dictionaryForKey("contactListInfo"))
+            self.session.transferUserInfo([contactName!:self.profileInfo])
+        }else{
+            let contactName = self.profileInfo["name"]
+            let newContactList = [[contactName!:self.profileInfo]]
+            self.appGroupDefaults.setValuesForKeysWithDictionary(["contactListInfo":newContactList])
+        }
     }
     
     

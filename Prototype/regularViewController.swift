@@ -26,22 +26,28 @@ class regularViewController: UIViewController{
         self.isAppAlreadyLaunchedOnce()
     }
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     func isAppAlreadyLaunchedOnce()->Bool{
         
-        if(NSUserDefaults.standardUserDefaults().stringForKey("isAppAlreadyLaunchedOnce") != nil){
+        if(defaults.stringForKey("isAppAlreadyLaunchedOnce") != nil){
             print("App already launched")
             
             return true
         }else{
             // above call to function would instatiate the view controller that contains the tutorial video along with the prompt to enter personal info
             
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isAppAlreadyLaunchedOnce")
+            defaults.setBool(true, forKey: "isAppAlreadyLaunchedOnce")
             print("App launched first time")
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             
             let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("firstLaunchViewController") as! firstLaunchViewController
             
             self.presentViewController(resultViewController, animated:true, completion:nil)
+            
+            // create the contactList dictionary key
+            
+            
             return false
         }
     }

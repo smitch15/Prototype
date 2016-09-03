@@ -749,17 +749,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate, NSURLS
         
     }
     
-   /* func session(session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject]) {
-        
-        //var contactListInfo:NSDictionary = self.defaults.dictionaryForKey("contactListInfo")!
-        
-        var contactListInfo: [String : AnyObject]
+    func session(session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject]) {
         
         let contactName = userInfo.keys.first
-        contactListInfo.updateValue(userInfo, forKey: contactName!)
-        self.defaults.setValue(contactListInfo, forKey: "contactListInfo")
-        print(contactListInfo)
+        let profileInfo = userInfo.values.first
         
-    }*/
+        if(defaults.dictionaryForKey("contactListInfo") != nil){
+            var contactListInfo = self.defaults.dictionaryForKey("contactListInfo")!
+            contactListInfo.updateValue(profileInfo!, forKey: contactName!)
+            self.defaults.setValue(contactListInfo, forKey: "contactListInfo")
+            print(contactListInfo)
+        }else{
+            let newContactList = [contactName!:profileInfo!]
+            self.defaults.setValuesForKeysWithDictionary(["contactListInfo":newContactList])
+            print(newContactList)
+        }
+        
+    }
     
 }
