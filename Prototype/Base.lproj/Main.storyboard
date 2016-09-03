@@ -114,10 +114,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wbZ-I9-Il7">
+                                <rect key="frame" x="184" y="607" width="46" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CnH-RY-3Yf">
+                                        <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="playbuttontap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pSb-9u-rWb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hjX-8a-Jxp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-88.5" id="8d8-zx-nRg"/>
+                            <constraint firstItem="wbZ-I9-Il7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HLg-gk-nV4"/>
                             <constraint firstItem="JnD-bO-xnW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="97.5" id="Oje-zQ-bYl"/>
                             <constraint firstItem="mwD-VZ-DJ2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="97.5" id="VM0-7j-uX0"/>
                             <constraint firstItem="vlm-4O-Qui" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="97.5" id="VyE-jK-Otv"/>
@@ -128,6 +141,7 @@
                             <constraint firstItem="dHH-P2-5kA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-88.5" id="ecS-9V-3FT"/>
                             <constraint firstItem="sbz-1d-AWu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-88.5" id="gXu-ZL-9YY"/>
                             <constraint firstItem="csn-rK-0Ua" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nfz-eK-jke"/>
+                            <constraint firstItem="wbZ-I9-Il7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pfa-PR-BJv"/>
                             <constraint firstItem="b9D-VZ-1xa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="97.5" id="qHr-vI-2DH"/>
                             <constraint firstItem="mtK-hB-vuI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="97.5" id="qMJ-ba-q9a"/>
                             <constraint firstItem="7cr-AX-9ah" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-88.5" id="ul9-IY-OWQ"/>

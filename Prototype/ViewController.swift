@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -17,10 +19,33 @@ class ViewController: UIViewController {
     @IBOutlet weak var positionText: UITextField!
     @IBOutlet weak var emailText: UITextField!
     
+    let avPlayerViewController = AVPlayerViewController()
+    var avplayer:AVPlayer?
+    
     let defaults = NSUserDefaults.standardUserDefaults()
+    
+    
+    @IBAction func playbuttontap(sender: UIButton) {
+        self.presentViewController(self.avPlayerViewController, animated: true) { () -> Void in
+            self.avPlayerViewController.player?.play()
+        }
+        
+    }
+        
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let urlPathString:String? = NSBundle.mainBundle().pathForResource("final_animation_1", ofType: "mp4")
+        
+        if let urlPath = urlPathString {
+            let movieUrl = NSURL(fileURLWithPath: urlPath)
+            
+            self.avplayer = AVPlayer(URL: movieUrl)
+            self.avPlayerViewController.player = self.avplayer
+        }
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     

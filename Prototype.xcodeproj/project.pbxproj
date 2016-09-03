@@ -25,6 +25,9 @@
 		67FAD41D1D6F7AF000D9952C /* rowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FAD41C1D6F7AF000D9952C /* rowController.swift */; };
 		B03BD1871D73CD5300BAACD9 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B06193F41D72149A006D3747 /* Interface.storyboard */; };
 		B03BD18B1D791EFF00BAACD9 /* ProfileInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03BD18A1D791EFF00BAACD9 /* ProfileInfoController.swift */; };
+		B03BD18E1D7B3C8200BAACD9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03BD18C1D7B3C8100BAACD9 /* AVFoundation.framework */; };
+		B03BD18F1D7B3C8200BAACD9 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03BD18D1D7B3C8100BAACD9 /* AVKit.framework */; };
+		B03BD1911D7B53BC00BAACD9 /* final_animation_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B03BD1901D7B53BC00BAACD9 /* final_animation_1.mp4 */; };
 		B06193F71D7214A6006D3747 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B06193F61D7214A6006D3747 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +97,9 @@
 		67FAD41C1D6F7AF000D9952C /* rowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rowController.swift; sourceTree = "<group>"; };
 		67FAD41E1D706D3100D9952C /* Watch Prototype Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Watch Prototype Extension.entitlements"; sourceTree = "<group>"; };
 		B03BD18A1D791EFF00BAACD9 /* ProfileInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInfoController.swift; sourceTree = "<group>"; };
+		B03BD18C1D7B3C8100BAACD9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B03BD18D1D7B3C8100BAACD9 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		B03BD1901D7B53BC00BAACD9 /* final_animation_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = final_animation_1.mp4; sourceTree = "<group>"; };
 		B06193F41D72149A006D3747 /* Interface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Interface.storyboard; path = ../../../Downloads/Interface.storyboard; sourceTree = "<group>"; };
 		B06193F61D7214A6006D3747 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../Downloads/Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +109,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B03BD18E1D7B3C8200BAACD9 /* AVFoundation.framework in Frameworks */,
+				B03BD18F1D7B3C8200BAACD9 /* AVKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +127,8 @@
 		6752C1B71D5181A0001453E3 = {
 			isa = PBXGroup;
 			children = (
+				B03BD18C1D7B3C8100BAACD9 /* AVFoundation.framework */,
+				B03BD18D1D7B3C8100BAACD9 /* AVKit.framework */,
 				6752C1C21D5181A0001453E3 /* Prototype */,
 				6752C1D81D5181B3001453E3 /* Watch Prototype */,
 				6752C1E71D5181B3001453E3 /* Watch Prototype Extension */,
@@ -141,6 +151,7 @@
 			children = (
 				6752C1C31D5181A0001453E3 /* AppDelegate.swift */,
 				6752C1C51D5181A0001453E3 /* ViewController.swift */,
+				B03BD1901D7B53BC00BAACD9 /* final_animation_1.mp4 */,
 				6752C1C71D5181A0001453E3 /* Main.storyboard */,
 				6752C1CA1D5181A0001453E3 /* Assets.xcassets */,
 				6752C1CC1D5181A0001453E3 /* LaunchScreen.storyboard */,
@@ -297,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6752C1CE1D5181A0001453E3 /* LaunchScreen.storyboard in Resources */,
+				B03BD1911D7B53BC00BAACD9 /* final_animation_1.mp4 in Resources */,
 				6745EA3D1D550E6A005B51ED /* arrayFile.txt in Resources */,
 				6752C1CB1D5181A0001453E3 /* Assets.xcassets in Resources */,
 				6752C1C91D5181A0001453E3 /* Main.storyboard in Resources */,
