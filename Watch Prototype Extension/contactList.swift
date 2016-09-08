@@ -37,29 +37,31 @@ class contactList: WKInterfaceController {
     
     
     func setupTable() {
-        var contactListDict:NSDictionary = appGroupDefaults.dictionaryForKey("contactListInfo")!
-        let contacts = contactListDict.allKeys
-        var contactsAsStringArr: [String]
-        contactsAsStringArr = (contacts as? [String])!
-        let locale = NSLocale(localeIdentifier: "en")
-        contactsAsStringArr.sort {
-            $0.compare($1, locale: locale) == .OrderedAscending
-        }
-        
-        
-        tableView.setNumberOfRows(contactsAsStringArr.count, withRowType: "rowController")
-        
-        if(contactsAsStringArr.count > 4){
-            self.encouragementLabel.setHidden(true)
-        }
-        
-        for(var i = 0; i < contactsAsStringArr.count; i+=1) {
+        print(appGroupDefaults.dictionaryForKey("contactListInfo"))
+        if(appGroupDefaults.dictionaryForKey("contactListInfo") != nil){
+            var contactListDict:NSDictionary = appGroupDefaults.dictionaryForKey("contactListInfo")!
+            let contacts = contactListDict.allKeys
+            var contactsAsStringArr: [String]
+            contactsAsStringArr = (contacts as? [String])!
+            let locale = NSLocale(localeIdentifier: "en")
+            contactsAsStringArr.sort {
+                $0.compare($1, locale: locale) == .OrderedAscending
+            }
             
             
-            if let row = tableView.rowControllerAtIndex(i) as? rowController {
-                row.contactLabel.setText(contacts[i] as? String)
+            tableView.setNumberOfRows(contactsAsStringArr.count, withRowType: "rowController")
+            
+            if(contactsAsStringArr.count > 4){
+                self.encouragementLabel.setHidden(true)
+            }
+            
+            for(var i = 0; i < contactsAsStringArr.count; i+=1) {
+                
+                if let row = tableView.rowControllerAtIndex(i) as? rowController {
+                    row.contactLabel.setText(contacts[i] as? String)
+                }
             }
         }
-    }
+        }
     
 }

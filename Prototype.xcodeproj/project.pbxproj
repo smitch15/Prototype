@@ -26,6 +26,10 @@
 		6752C2011D518277001453E3 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6752C1FF1D518277001453E3 /* Interface.storyboard */; };
 		6752C2031D51827E001453E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6752C2021D51827E001453E3 /* Assets.xcassets */; };
 		6752C2051D51870D001453E3 /* audioFile.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6752C2041D51870D001453E3 /* audioFile.wav */; };
+		677C54331D7FCD9000DF3518 /* contactProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677C54321D7FCD9000DF3518 /* contactProfileViewController.swift */; };
+		67E46D311D7BA431008B3D22 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E46D2F1D7BA431008B3D22 /* AVFoundation.framework */; };
+		67E46D321D7BA431008B3D22 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E46D301D7BA431008B3D22 /* AVKit.framework */; };
+		67E46D341D7BA81A008B3D22 /* final_animation_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 67E46D331D7BA81A008B3D22 /* final_animation_1.mp4 */; };
 		67F924491D77CF87004B4E5C /* contactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F924481D77CF87004B4E5C /* contactListViewController.swift */; };
 		67F9244B1D79CD59004B4E5C /* contactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F9244A1D79CD59004B4E5C /* contactCell.swift */; };
 		67FAD4191D6F6F3400D9952C /* contactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FAD4181D6F6F3400D9952C /* contactList.swift */; };
@@ -99,6 +103,10 @@
 		6752C2001D518277001453E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../session id work/session id watch/Base.lproj/Interface.storyboard"; sourceTree = "<group>"; };
 		6752C2021D51827E001453E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../session id work/session id watch/Assets.xcassets"; sourceTree = "<group>"; };
 		6752C2041D51870D001453E3 /* audioFile.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = audioFile.wav; sourceTree = "<group>"; };
+		677C54321D7FCD9000DF3518 /* contactProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contactProfileViewController.swift; sourceTree = "<group>"; };
+		67E46D2F1D7BA431008B3D22 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		67E46D301D7BA431008B3D22 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		67E46D331D7BA81A008B3D22 /* final_animation_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = final_animation_1.mp4; path = ../../../Downloads/final_animation_1.mp4; sourceTree = "<group>"; };
 		67F924481D77CF87004B4E5C /* contactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contactListViewController.swift; sourceTree = "<group>"; };
 		67F9244A1D79CD59004B4E5C /* contactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contactCell.swift; sourceTree = "<group>"; };
 		67FAD4181D6F6F3400D9952C /* contactList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contactList.swift; sourceTree = "<group>"; };
@@ -111,6 +119,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67E46D311D7BA431008B3D22 /* AVFoundation.framework in Frameworks */,
+				67E46D321D7BA431008B3D22 /* AVKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +137,8 @@
 		6752C1B71D5181A0001453E3 = {
 			isa = PBXGroup;
 			children = (
+				67E46D2F1D7BA431008B3D22 /* AVFoundation.framework */,
+				67E46D301D7BA431008B3D22 /* AVKit.framework */,
 				6752C1C21D5181A0001453E3 /* Prototype */,
 				6752C1D81D5181B3001453E3 /* Watch Prototype */,
 				6752C1E71D5181B3001453E3 /* Watch Prototype Extension */,
@@ -147,11 +159,13 @@
 		6752C1C21D5181A0001453E3 /* Prototype */ = {
 			isa = PBXGroup;
 			children = (
+				67E46D331D7BA81A008B3D22 /* final_animation_1.mp4 */,
 				6752C1C31D5181A0001453E3 /* AppDelegate.swift */,
 				6752C1C51D5181A0001453E3 /* firstLaunchViewController.swift */,
 				6703C7591D74575000B7AEA1 /* regularViewController.swift */,
 				67F924481D77CF87004B4E5C /* contactListViewController.swift */,
 				67F9244A1D79CD59004B4E5C /* contactCell.swift */,
+				677C54321D7FCD9000DF3518 /* contactProfileViewController.swift */,
 				6752C1C71D5181A0001453E3 /* Main.storyboard */,
 				6752C1CA1D5181A0001453E3 /* Assets.xcassets */,
 				6752C1CC1D5181A0001453E3 /* LaunchScreen.storyboard */,
@@ -308,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6752C1CE1D5181A0001453E3 /* LaunchScreen.storyboard in Resources */,
+				67E46D341D7BA81A008B3D22 /* final_animation_1.mp4 in Resources */,
 				6745EA3D1D550E6A005B51ED /* arrayFile.txt in Resources */,
 				6752C1CB1D5181A0001453E3 /* Assets.xcassets in Resources */,
 				6752C1C91D5181A0001453E3 /* Main.storyboard in Resources */,
@@ -346,6 +361,7 @@
 				672FEB4D1D5BD2F30044FFC0 /* BWWalkthroughViewController.swift in Sources */,
 				672FEB4B1D5BD2EE0044FFC0 /* BWWalkthroughPageViewController.swift in Sources */,
 				67F924491D77CF87004B4E5C /* contactListViewController.swift in Sources */,
+				677C54331D7FCD9000DF3518 /* contactProfileViewController.swift in Sources */,
 				6752C1C61D5181A0001453E3 /* firstLaunchViewController.swift in Sources */,
 				6752C1C41D5181A0001453E3 /* AppDelegate.swift in Sources */,
 			);

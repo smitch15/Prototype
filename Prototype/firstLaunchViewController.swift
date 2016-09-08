@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class firstLaunchViewController: UIViewController {
     
@@ -17,16 +19,51 @@ class firstLaunchViewController: UIViewController {
     @IBOutlet weak var positionText: UITextField!
     @IBOutlet weak var emailText: UITextField!
     
+    let avPlayerViewController = AVPlayerViewController()
+    var avplayer:AVPlayer?
+    
     let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        if(defaults.stringForKey("userFirstName") != nil){
+            self.f_NameText.placeholder = defaults.stringForKey("userFirstName")
+        }
+        if(defaults.stringForKey("userLastName") != nil){
+            self.L_NameText.placeholder = defaults.stringForKey("userLastName")
+        }
+        if(defaults.stringForKey("userEducation") != nil){
+            self.eduText.placeholder = defaults.stringForKey("userEducation")
+        }
+        if(defaults.stringForKey("userCompanyName") != nil){
+            self.companyText.placeholder = defaults.stringForKey("userCompanyName")
+        }
+        if(defaults.stringForKey("userOccupation") != nil){
+            self.positionText.placeholder = defaults.stringForKey("userOccupation")
+        }
+        if(defaults.stringForKey("userEmail") != nil){
+            self.emailText.placeholder = defaults.stringForKey("userEmail")
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if(self.defaults.stringForKey("introVidPlayed") == nil){
+            let urlPathString:String? = NSBundle.mainBundle().pathForResource("final_animation_1", ofType: "mp4")
+            let urlPath = urlPathString
+            let movieUrl = NSURL(fileURLWithPath: urlPath!)
+            self.avplayer = AVPlayer(URL: movieUrl)
+            self.avPlayerViewController.player = self.avplayer
+            self.presentViewController(self.avPlayerViewController, animated: true) { () -> Void in
+                self.avPlayerViewController.player?.play()
+            }
+            self.defaults.setObject("has played", forKey: "introVidPlayed")
+        }
     }
     
     @IBAction func personalInfoSubmitted(sender: AnyObject) {

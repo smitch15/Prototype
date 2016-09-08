@@ -9,7 +9,6 @@
 import UIKit
 import WatchConnectivity
 
-//pull
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate, NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate{
@@ -24,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate, NSURLS
     var sessionID: String!
     var sessionIDdata: NSData!
     var kookie: String!
-    var stringToBeParsed: String! =  "Hi, what is your name?  My name is Johnny, and yours is? I'm William of Hoover Construction Group.  So you work in construction?  Well, no, not really.  I manage the company's finances.  Oh, that makes sense!  I too work in finance for BlockChain Corp.  Funny that we would end up at a tech event in NYC together.  So why come to an artificial intelligence event?  I would like to know whether or not these technologies could take our jobs.  There is no way.  A human eye must be available to check for errors.  Humans make errors, robots don't.  I guess we must see.  I don't think we would want to have a computer manage our entire financial system.  We will lose all control.  Those are valid points.  Well, let's listen to this talk, he is head of artificial intelligence at Facebook."/*"Nice pair of pants you've got there.  Oh, thank you.  Bought them from H and M.  What's your name?  Oh, I'm Johnny, you?  Willy; what brings you here?  My company had asked me to come in, we need new clients.  You work in sales?  Something like that.  I'm the key networker for BlockChain corp.  Interesting, how did you get that job.  Well, I had always gone to a ton of meetups during my time at Flat University, and so I picked up a knack for it, applied and got the job.  What do you do?  I'm a financial consultant at PWC.  So what makes you come to a tech event? I am interested in changing my career path.  I know that I am able to code, I really want to learn to feel as though I am contributing to something important.  Wow, I wish I had desires like that.  I am just content with what I am doing now.  How do you expect to learn coding?  There are a ton of online courses; I already took a few intro courses during my time at Rutgers.  Would you do a startup thing or try to get a corporate programming job?  I don't know, I guess I will see.  Well, it seems as though the key note is about to begin. Let's connect on LinkedIn or Facebook. Sure!"*//*"Hi my name is Trevor, what is yours?  Oh, I am Johnny Rocket.  What brings you here, Trevor?  I am very interested in robotics and how humans can leverage this technology to make the world a better place.  Oh wow! Where do you work, Trevor?  I actually am only a student at Baruch College.  What about you?  I am unemployed, but I am working on writing a sci-fi book, and that is what has brought me here today."*/
+    var stringToBeParsed: String! =  /*"Hi, what is your name?  My name is Rafael, and yours is? I'm William of Hoover Construction Group.  So you work in construction?  Well, no, not really.  I manage the company's finances.  Oh, that makes sense!  I too work in finance for BlockChain Corp.  Funny that we would end up at a tech event in NYC together.  So why come to an artificial intelligence event?  I would like to know whether or not these technologies could take our jobs.  There is no way.  A human eye must be available to check for errors.  Humans make errors, robots don't.  I guess we must see.  I don't think we would want to have a computer manage our entire financial system.  We will lose all control.  Those are valid points.  Well, let's listen to this talk, he is head of artificial intelligence at Facebook."*/"Nice pair of pants you've got there.  Oh, thank you.  Bought them from H and M.  What's your name?  Oh, I'm Johnny, you?  Willy; what brings you here?  My company had asked me to come in, we need new clients.  You work in sales?  Something like that.  I'm the key networker for BlockChain corp.  Interesting, how did you get that job.  Well, I had always gone to a ton of meetups during my time at Flat University, and so I picked up a knack for it, applied and got the job.  What do you do?  I'm a financial consultant at PWC.  So what makes you come to a tech event? I am interested in changing my career path.  I know that I am able to code, I really want to learn to feel as though I am contributing to something important.  Wow, I wish I had desires like that.  I am just content with what I am doing now.  How do you expect to learn coding?  There are a ton of online courses; I already took a few intro courses during my time at Rutgers.  Would you do a startup thing or try to get a corporate programming job?  I don't know, I guess I will see.  Well, it seems as though the key note is about to begin. Let's connect on LinkedIn or Facebook. Sure!"/* "Hi my name is Trevor, what is yours?  Oh, I am Johnny Rocket.  What brings you here, Trevor?  I am very interested in robotics and how humans can leverage this technology to make the world a better place.  Oh wow! Where do you work, Trevor?  I actually am only a student at Baruch College.  What about you?  I am unemployed, but I am working on writing a sci-fi book, and that is what has brought me here today."*/
     var encodedString: String!
     var alchemyData: NSData!
     
@@ -399,23 +398,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate, NSURLS
         var userInfoArray:NSMutableArray = []
         let def = self.defaults
         
-        let fName = def.stringForKey("userFirstName")
-        let lName = def.stringForKey("userLastName")
-        let edu = def.stringForKey("userEducation")
-        let company = def.stringForKey("userCompanyName")
-        let occ = def.stringForKey("userOccupation")
+        var fName = "nothing"
+        var lName = "nothing"
+        var edu = "nothing"
+        var company = "nothing"
+        var occ = "nothing"
         
+        if(def.stringForKey("userFirstName") != nil){
+            fName = def.stringForKey("userFirstName")!
+        }
+        if(def.stringForKey("userLastName") != nil){
+            lName = def.stringForKey("userLastName")!
+        }
+        if(def.stringForKey("userEducation") != nil){
+            edu = def.stringForKey("userEducation")!
+        }
+        if(def.stringForKey("userCompanyName") != nil){
+            company = def.stringForKey("userCompanyName")!
+        }
+        if(def.stringForKey("userOccupation") != nil){
+            occ = def.stringForKey("userOccupation")!
+        }
         
         //pos[0]
-        userInfoArray.addObject(fName!)
+        userInfoArray.addObject(fName)
         //pos[1]
-        userInfoArray.addObject(lName!)
+        userInfoArray.addObject(lName)
         //pos[2]
-        userInfoArray.addObject(edu!)
+        userInfoArray.addObject(edu)
         //pos[3]
-        userInfoArray.addObject(company!)
+        userInfoArray.addObject(company)
         //pos[4]
-        userInfoArray.addObject(occ!)
+        userInfoArray.addObject(occ)
         
         
         print(userInfoArray)

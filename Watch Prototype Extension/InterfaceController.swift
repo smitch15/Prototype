@@ -95,9 +95,6 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         
         self.toggleProfileUI(hideUI)
         
-        
-        //let masterArray = NSMutableArray(contentsOfURL: self.arrayURL)
-
     }
     
     func toggleProfileUI(value:Bool){
@@ -151,6 +148,13 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
             let userCompany = userInfo_MutArray[3] as! String
             let userOcc = userInfo_MutArray[4] as! String
             let transcriptDictArray = masterArray[12] as! NSMutableArray
+           
+            
+            
+            //print(keywordArray, entityTextArray, entityTypeArray, taxonomyArray, conceptArray, emotionArray, occOrg_TR_MutArray, occCompany_Entity_MutArray, occJobTitle_Entity_MutArray, education_MutArray, edu_MutArray_through_TR, userInfo_MutArray, userFirstName, userLastName, userEducation, userCompany, userOcc)
+            
+            
+            
             
             var taxonomyArray_WO_slashes: NSMutableArray = []
             
@@ -166,6 +170,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
             }
             
             let edu = self.setEducation(education_MutArray, edu_MutArray_through_TR: edu_MutArray_through_TR, userEducation: userEducation)
+            print(edu)
             self.contactNameFunc(entityTextArray, entityTypeArray: entityTypeArray, userFirstName: userFirstName, userLastName: userLastName)
             self.occupationFunc(occOrg_TR_MutArray, occCompany_Entity_MutArray: occCompany_Entity_MutArray, occJobTitle_Entity_MutArray: occJobTitle_Entity_MutArray, edu_MutArray_through_TR: edu_MutArray_through_TR, userCompany: userCompany, userOcc: userOcc)
             self.interestFunc(transcriptDictArray)
@@ -183,36 +188,43 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         var interestSent3 = "empty"
         
         if(transcriptDictArray.count > 0) {
-            let dictionary:Dictionary<String, NSMutableArray> = transcriptDictArray[0] as! Dictionary<String, NSMutableArray>
-            let interestArray = dictionary["interestArr"]!
-            let wantArray = dictionary["wantArr"]!
-            if(interestArray.count > 0){
-                for(var i = 0; i <= interestArray.count; i += 1){
-                    if(i == 0){
-                        interestSent1 = interestArray[0] as! String
-                    }
-                    if(i == 1){
-                        interestSent2 = interestArray[1] as! String
-                    }
-                    if(i == 2){
-                        interestSent3 = interestArray[2] as! String
+            let dictionary = transcriptDictArray[0] as! Dictionary<String, NSMutableArray>
+            
+            if(dictionary["interestArr"] != nil){
+                let interestArray = dictionary["interestArr"]!
+                if(interestArray.count > 0){
+                    for(var i = 0; i < interestArray.count; i += 1){
+                        if(i == 0){
+                            interestSent1 = interestArray[0] as! String
+                        }
+                        if(i == 1){
+                            interestSent2 = interestArray[1] as! String
+                        }
+                        if(i == 2){
+                            interestSent3 = interestArray[2] as! String
+                        }
                     }
                 }
             }
             
-            if(wantArray.count > 0){
-                for(var i = 0; i <= interestArray.count; i += 1){
-                    if(interestSent1 == "empty"){
-                        interestSent1 = wantArray[i] as! String
-                    }
-                    else if(interestSent2 == "empty"){
-                        interestSent2 = wantArray[i] as! String
-                    }
-                    else if(interestSent3 == "empty"){
-                        interestSent3 = wantArray[i] as! String
+            if(dictionary["wantArr"] != nil){
+                let wantArray = dictionary["wantArr"]!
+                
+                if(wantArray.count > 0){
+                    for(var i = 0; i < wantArray.count; i += 1){
+                        if(interestSent1 == "empty"){
+                            interestSent1 = wantArray[i] as! String
+                        }
+                        else if(interestSent2 == "empty"){
+                            interestSent2 = wantArray[i] as! String
+                        }
+                        else if(interestSent3 == "empty"){
+                            interestSent3 = wantArray[i] as! String
+                        }
                     }
                 }
             }
+            
             
             self.IntNum1Label.setText("1. \(interestSent1)")
             self.profileInfo["int1"] = interestSent1
@@ -220,7 +232,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
             self.profileInfo["int2"] = interestSent2
             self.IntNum3Label.setText("3. \(interestSent3)")
             self.profileInfo["int3"] = interestSent3
-
+            print(interestSent1,interestSent2,interestSent3)
         }
         
     }
@@ -249,6 +261,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         }
         self.EducationButton.setTitle(education)
         self.profileInfo["edu"] = education
+        print(education)
         return(education)
     }
     
@@ -268,10 +281,11 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         if(namePosition != 923){
             let name = entityTextArray[namePosition] as! String
             self.NameButton.setTitle(name)
+            print(name)
             self.profileInfo["name"] = name
         }else{
             self.NameButton.setTitle("Please Enter Name")
-            self.profileInfo["name"] = "empty"
+            self.profileInfo["name"] = "no name"
         }
     }
     
@@ -343,6 +357,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         }
         self.OccButton.setTitle(final)
         self.profileInfo["occ"] = final
+        print(final)
     }
 
     @IBAction func contctListChecker() {
@@ -511,6 +526,8 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     @IBAction func maybeLater(){
         self.saveContactList()
         
+        print(self.profileInfo)
+        
         self.pathosButton.setHidden(false)
         self.contactListButton.setHidden(false)
         self.emojiGroup.setHidden(true)
@@ -522,6 +539,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
 
     func saveContactList(){
         if(self.appGroupDefaults.dictionaryForKey("contactListInfo") != nil){
+            print("contact list already existed")
             var contactListInfo = self.appGroupDefaults.dictionaryForKey("contactListInfo")!
             let contactName = self.profileInfo["name"]
             contactListInfo.updateValue(self.profileInfo, forKey: contactName!)
@@ -530,9 +548,17 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
             print(appGroupDefaults.dictionaryForKey("contactListInfo"))
             self.session.transferUserInfo([contactName!:self.profileInfo])
         }else{
+            print("first addition")
+            var contactListInfo: [String:AnyObject]
             let contactName = self.profileInfo["name"]
-            let newContactList = [[contactName!:self.profileInfo]]
-            self.appGroupDefaults.setValuesForKeysWithDictionary(["contactListInfo":newContactList])
+            contactListInfo = [contactName!:self.profileInfo]
+            self.appGroupDefaults.setObject(contactListInfo, forKey: "contactListInfo")
+            print(self.appGroupDefaults.dictionaryForKey("contactListInfo"))
+            self.session.transferUserInfo([contactName!:self.profileInfo])
+        }
+        
+        if(self.profileInfo.isEmpty == false){
+            self.profileInfo.removeAll()
         }
     }
     

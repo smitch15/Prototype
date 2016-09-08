@@ -13,7 +13,7 @@ class contactListViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var contactTableView: UITableView!
     
     let defaults = NSUserDefaults.standardUserDefaults()
-    
+    var contactsAsStringArr: [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.        
@@ -40,9 +40,37 @@ class contactListViewController: UIViewController, UITableViewDataSource {
     internal func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         var cell = self.contactTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! contactCell
         
+        if(defaults.dictionaryForKey("contactListInfo") != nil){
+            let contactListDict:NSDictionary = defaults.dictionaryForKey("contactListInfo")!
+            let contacts = contactListDict.allKeys
+            var contactsAsStringArr: [String] = []
+            self.contactsAsStringArr = (contacts as? [String])!
+            for(var i = 0; i < self.contactsAsStringArr.count; i+=1) {
+                cell.nameLabel.text = contactsAsStringArr[i]
+            }
+        }
+        
         return(cell)
     }
     
+    let appTintColor = UIColor(red:248/255.0, green: 47/255.0, blue: 38/255.0, alpha: 1.0)
     
+    internal func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+       
+        let selectedName = self.contactsAsStringArr[indexPath.row]
+        
+        
+        /*tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        var cell = self.contactTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! contactCell
+        let selectedName = cell.nameLabel.text
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("contactProfileViewController") as! contactProfileViewController
+        self.presentViewController(resultViewController, animated:true, completion:nil)
+        
+        self.defaults.setObject(selectedName!, forKey: "contactSelection")
+ */
+    }
 
 }
