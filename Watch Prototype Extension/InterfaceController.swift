@@ -60,6 +60,10 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
+        
+        if (context != nil){
+            toggleProfileUI(false)
+        }
         // Configure interface objects here.
     }
 
@@ -82,7 +86,6 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         
     }
     
- 
     func session(session: WCSession, didReceiveFile file: WCSessionFile) {
         
         let hideUI = false
@@ -93,35 +96,8 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         self.loadingScreenVisual(true)
         self.setProfileVisual()
         
+        
         self.toggleProfileUI(hideUI)
-        
-    }
-    
-    func toggleProfileUI(value:Bool){
-        self.ConfirmationSettingsLabel.setHidden(value)
-        self.LabelConfirmSettings.setHidden(value)
-        self.LabelForName.setHidden(value)
-        self.Separator1.setHidden(value)
-        self.NameButton.setHidden(value)
-        self.LabelForOcc.setHidden(value)
-        self.Separator2.setHidden(value)
-        self.OccButton.setHidden(value)
-        self.LabelForEducation.setHidden(value)
-        self.Separator3.setHidden(value)
-        self.EducationButton.setHidden(value)
-        self.LabelForTalkPoints.setHidden(value)
-        self.Separator4.setHidden(value)
-        self.InterestNum1.setHidden(value)
-        self.InterestNum2.setHidden(value)
-        self.InterestNum3.setHidden(value)
-        self.ConfirmButton.setHidden(value)
-        self.DeleteButton.setHidden(value)
-        
-        if(value == false){
-            self.pathosButton.setHidden(true)
-            self.contactListButton.setHidden(true)
-        
-        }
         
     }
     
@@ -234,7 +210,36 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
             self.profileInfo["int3"] = interestSent3
             print(interestSent1,interestSent2,interestSent3)
         }
+    }
+    
+    // use this function with the false bool in order to present profile Info UI
+    func toggleProfileUI(value:Bool){
+        // all of these items will become visible, they are profileInfo objects
+        self.ConfirmationSettingsLabel.setHidden(value)
+        self.LabelConfirmSettings.setHidden(value)
+        self.LabelForName.setHidden(value)
+        self.Separator1.setHidden(value)
+        self.NameButton.setHidden(value)
+        self.LabelForOcc.setHidden(value)
+        self.Separator2.setHidden(value)
+        self.OccButton.setHidden(value)
+        self.LabelForEducation.setHidden(value)
+        self.Separator3.setHidden(value)
+        self.EducationButton.setHidden(value)
+        self.LabelForTalkPoints.setHidden(value)
+        self.Separator4.setHidden(value)
+        self.InterestNum1.setHidden(value)
+        self.InterestNum2.setHidden(value)
+        self.InterestNum3.setHidden(value)
+        self.ConfirmButton.setHidden(value)
+        self.DeleteButton.setHidden(value)
         
+        if(value == false){
+            // all of the items will be hidden
+            self.pathosButton.setHidden(true)
+            self.contactListButton.setHidden(true)
+            
+        }
     }
     
     func setEducation(education_MutArray:NSMutableArray, edu_MutArray_through_TR:NSMutableArray, userEducation: String) -> String{
@@ -364,6 +369,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         self.pathosButton.setHidden(true)
         self.contactListButton.setHidden(true)
     }
+    
     func audioRecording(){
         
         let duration = NSTimeInterval(Double.infinity)
@@ -401,14 +407,13 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     }
     
     @IBAction func pressedConfirm(){
-        let hideUI = true
+        //let hideUI = true
         
         self.emojiGroup.setHidden(false)
         self.TheVibeLabel.setHidden(false)
         self.maybeLaterButton.setHidden(false)
         
-        
-        self.toggleProfileUI(hideUI)
+        //self.toggleProfileUI(hideUI)
     }
     
     @IBAction func pressedDelete() {

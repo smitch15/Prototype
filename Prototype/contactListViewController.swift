@@ -29,9 +29,7 @@ class contactListViewController: UIViewController, UITableViewDataSource {
         if(defaults.dictionaryForKey("contactListInfo") != nil){
             let contactListDict:NSDictionary = defaults.dictionaryForKey("contactListInfo")!
             let contacts = contactListDict.allKeys
-            var contactsAsStringArr: [String] = []
-            contactsAsStringArr = (contacts as? [String])!
-            integer = contactsAsStringArr.count
+            integer = contacts.count
         }
  
         return (integer)
@@ -46,31 +44,30 @@ class contactListViewController: UIViewController, UITableViewDataSource {
             var contactsAsStringArr: [String] = []
             self.contactsAsStringArr = (contacts as? [String])!
             for(var i = 0; i < self.contactsAsStringArr.count; i+=1) {
-                cell.nameLabel.text = contactsAsStringArr[i]
+                cell.nameLabel.text = self.contactsAsStringArr[i]
             }
         }
         
         return(cell)
     }
     
-    let appTintColor = UIColor(red:248/255.0, green: 47/255.0, blue: 38/255.0, alpha: 1.0)
     
-    internal func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
        
         let selectedName = self.contactsAsStringArr[indexPath.row]
+        self.defaults.setObject(selectedName, forKey: "contactSelection")
         
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        /*tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        var cell = self.contactTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! contactCell
-        let selectedName = cell.nameLabel.text
+        //var cell = self.contactTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! contactCell
+        //let selectedName = cell.nameLabel.text
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("contactProfileViewController") as! contactProfileViewController
         self.presentViewController(resultViewController, animated:true, completion:nil)
         
-        self.defaults.setObject(selectedName!, forKey: "contactSelection")
- */
+        
+ 
     }
-
+    
 }

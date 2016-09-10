@@ -35,6 +35,13 @@ class contactList: WKInterfaceController {
         super.didDeactivate()
     }
     
+    override func contextForSegueWithIdentifier(segueIdentifier: String, inTable table: WKInterfaceTable, rowIndex: Int) -> AnyObject? {
+        var contactListDict:NSDictionary = appGroupDefaults.dictionaryForKey("contactListInfo")!
+        let contacts = contactListDict.allKeys
+        var contactsAsStringArr: [String]
+        contactsAsStringArr = (contacts as? [String])!
+        return contactsAsStringArr[rowIndex]
+    }
     
     func setupTable() {
         print(appGroupDefaults.dictionaryForKey("contactListInfo"))
@@ -47,7 +54,6 @@ class contactList: WKInterfaceController {
             contactsAsStringArr.sort {
                 $0.compare($1, locale: locale) == .OrderedAscending
             }
-            
             
             tableView.setNumberOfRows(contactsAsStringArr.count, withRowType: "rowController")
             
@@ -62,6 +68,6 @@ class contactList: WKInterfaceController {
                 }
             }
         }
-        }
+    }
     
 }
