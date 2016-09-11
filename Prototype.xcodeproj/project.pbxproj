@@ -32,6 +32,7 @@
 		67FAD4191D6F6F3400D9952C /* contactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FAD4181D6F6F3400D9952C /* contactList.swift */; };
 		67FAD41D1D6F7AF000D9952C /* rowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FAD41C1D6F7AF000D9952C /* rowController.swift */; };
 		B087A7FA1D84955A004E8B37 /* final_animation_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B087A7F91D84955A004E8B37 /* final_animation_1.mp4 */; };
+		B087A7FC1D84C26A004E8B37 /* ProfileInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B087A7FB1D84C26A004E8B37 /* ProfileInterfaceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		67FAD41C1D6F7AF000D9952C /* rowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rowController.swift; sourceTree = "<group>"; };
 		67FAD41E1D706D3100D9952C /* Watch Prototype Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Watch Prototype Extension.entitlements"; sourceTree = "<group>"; };
 		B087A7F91D84955A004E8B37 /* final_animation_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = final_animation_1.mp4; sourceTree = "<group>"; };
+		B087A7FB1D84C26A004E8B37 /* ProfileInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInterfaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 				67FAD41E1D706D3100D9952C /* Watch Prototype Extension.entitlements */,
 				6752C1EA1D5181B3001453E3 /* InterfaceController.swift */,
 				67FAD4181D6F6F3400D9952C /* contactList.swift */,
+				B087A7FB1D84C26A004E8B37 /* ProfileInterfaceController.swift */,
 				6752C1EC1D5181B3001453E3 /* ExtensionDelegate.swift */,
 				67FAD41C1D6F7AF000D9952C /* rowController.swift */,
 				6752C1F01D5181B3001453E3 /* Assets.xcassets */,
@@ -364,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6752C1ED1D5181B3001453E3 /* ExtensionDelegate.swift in Sources */,
+				B087A7FC1D84C26A004E8B37 /* ProfileInterfaceController.swift in Sources */,
 				67FAD4191D6F6F3400D9952C /* contactList.swift in Sources */,
 				67FAD41D1D6F7AF000D9952C /* rowController.swift in Sources */,
 				6752C1EB1D5181B3001453E3 /* InterfaceController.swift in Sources */,

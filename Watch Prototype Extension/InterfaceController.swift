@@ -60,10 +60,6 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        
-        if (context != nil){
-            toggleProfileUI(false)
-        }
         // Configure interface objects here.
     }
 

@@ -202,7 +202,7 @@
                                             </label>
                                         </items>
                                         <connections>
-                                            <segue destination="AgC-eL-Hgc" kind="push" id="5MR-Yp-l22"/>
+                                            <segue destination="5Nv-gZ-eEa" kind="push" id="Tu9-GC-JHV"/>
                                         </connections>
                                     </group>
                                     <connections>
@@ -224,7 +224,63 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-12" y="676"/>
+            <point key="canvasLocation" x="-52" y="856"/>
+        </scene>
+        <!--Profile Interface Controller-->
+        <scene sceneID="0cJ-Km-m9J">
+            <objects>
+                <controller id="5Nv-gZ-eEa" customClass="ProfileInterfaceController" customModule="Watch_Prototype_Extension">
+                    <items>
+                        <button width="136" height="37.5" alignment="left" title="NameButton" id="oUt-QX-bAB">
+                            <connections>
+                                <action selector="changeName" destination="5Nv-gZ-eEa" id="CTV-FY-K27"/>
+                            </connections>
+                        </button>
+                        <label width="132.5" height="23.5" alignment="left" text="Talking Points" textAlignment="center" id="AT0-OV-Ity"/>
+                        <separator alignment="left" id="1Z9-Ma-IFw"/>
+                        <button width="1" alignment="left" title="InterestOne" id="H7N-qW-6Um">
+                            <connections>
+                                <action selector="changeInt1" destination="5Nv-gZ-eEa" id="vSL-d3-o6e"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="InterestTwo" id="hxo-Sm-2t3">
+                            <connections>
+                                <action selector="changeInt2" destination="5Nv-gZ-eEa" id="KlZ-d5-efc"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="InterestThree" id="Ndu-lq-qQR">
+                            <connections>
+                                <action selector="changeInt3" destination="5Nv-gZ-eEa" id="6VV-l5-uAq"/>
+                            </connections>
+                        </button>
+                        <label width="136" height="24.5" alignment="left" text="Occupation" textAlignment="center" id="2iw-8Q-Shv"/>
+                        <separator alignment="left" id="4Wq-oO-MKV"/>
+                        <button width="1" alignment="left" title="Job" id="Ld3-5H-OyQ">
+                            <connections>
+                                <action selector="changeOcc" destination="5Nv-gZ-eEa" id="Uax-oC-cJn"/>
+                            </connections>
+                        </button>
+                        <label width="126.5" height="21.5" alignment="left" text="Education" textAlignment="center" id="Xoj-yu-TBO"/>
+                        <separator alignment="left" id="YYL-6D-3b9"/>
+                        <button width="1" alignment="left" title="University" id="L2M-vC-zvo">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="changeEdu" destination="5Nv-gZ-eEa" id="nXd-z6-mJy"/>
+                            </connections>
+                        </button>
+                        <label width="136" height="24.5" alignment="left" hidden="YES" text="Label" textAlignment="center" id="BLi-yQ-9GX"/>
+                    </items>
+                    <connections>
+                        <outlet property="eduButton" destination="L2M-vC-zvo" id="qgI-lB-RkO"/>
+                        <outlet property="intOneButton" destination="H7N-qW-6Um" id="Hb0-1m-uY8"/>
+                        <outlet property="intThreeButton" destination="Ndu-lq-qQR" id="gx0-Ld-nig"/>
+                        <outlet property="intTwoButton" destination="hxo-Sm-2t3" id="alv-fb-Nm0"/>
+                        <outlet property="jobButton" destination="Ld3-5H-OyQ" id="Phn-BY-60w"/>
+                        <outlet property="nameButton" destination="oUt-QX-bAB" id="uh0-wZ-dAI"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="294" y="716.5"/>
         </scene>
     </scenes>
 </document>
