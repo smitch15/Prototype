@@ -403,13 +403,13 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     }
     
     @IBAction func pressedConfirm(){
-        //let hideUI = true
+        let hideUI = true
         
         self.emojiGroup.setHidden(false)
         self.TheVibeLabel.setHidden(false)
         self.maybeLaterButton.setHidden(false)
         
-        //self.toggleProfileUI(hideUI)
+        self.toggleProfileUI(hideUI)
     }
     
     @IBAction func pressedDelete() {
