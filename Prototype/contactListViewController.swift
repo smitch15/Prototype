@@ -8,21 +8,26 @@
 
 import UIKit
 
-class contactListViewController: UIViewController, UITableViewDataSource {
+class contactListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var backButton: UIButton!
     
     @IBOutlet weak var contactTableView: UITableView!
     
     let defaults = NSUserDefaults.standardUserDefaults()
     var contactsAsStringArr: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.backButton.layer.cornerRadius = 4
         // Do any additional setup after loading the view, typically from a nib.        
     }
-    
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+        
     internal func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         var integer: Int = 0
         
@@ -40,34 +45,50 @@ class contactListViewController: UIViewController, UITableViewDataSource {
         
         if(defaults.dictionaryForKey("contactListInfo") != nil){
             let contactListDict:NSDictionary = defaults.dictionaryForKey("contactListInfo")!
+            print(contactListDict)
             let contacts = contactListDict.allKeys
+            print(contacts)
             var contactsAsStringArr: [String] = []
             self.contactsAsStringArr = (contacts as? [String])!
-            for(var i = 0; i < self.contactsAsStringArr.count; i+=1) {
-                cell.nameLabel.text = self.contactsAsStringArr[i]
+            for(var i = 0; i <= indexPath.row; i+=1) {
+                cell.nameButton.setTitle(self.contactsAsStringArr[i], forState: UIControlState.Normal)
             }
+ 
         }
         
         return(cell)
     }
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-       
-        let selectedName = self.contactsAsStringArr[indexPath.row]
-        self.defaults.setObject(selectedName, forKey: "contactSelection")
-        
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        //var cell = self.contactTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! contactCell
-        //let selectedName = cell.nameLabel.text
+    @IBAction func backToHome(sender: AnyObject) {
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("contactProfileViewController") as! contactProfileViewController
+        
+        let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("regularViewController") as! regularViewController
+        
         self.presentViewController(resultViewController, animated:true, completion:nil)
         
-        
- 
     }
+   
+    
+    /* func showProf(){
+     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+     let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("contactProfileViewController") as! contactProfileViewController
+     self.presentViewController(resultViewController, animated:true, completion:nil)
+     }
+     
+     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+     
+     let selectedName = self.contactsAsStringArr[indexPath.row]
+     self.defaults.setObject(selectedName, forKey: "contactSelection")
+     print(selectedName)
+     //tableView.deselectRowAtIndexPath(indexPath, animated: true)
+     
+     //var cell = self.contactTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! contactCell
+     //let selectedName = cell.nameLabel.text
+     
+     //self.showProf()
+     
+     }*/
     
 }
