@@ -10,6 +10,8 @@ import UIKit
 
 class contactProfileViewController: UIViewController{
     
+    @IBOutlet weak var backButton: UIButton!
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var occLabel: UILabel!
     @IBOutlet weak var eduLabel: UILabel!
@@ -21,7 +23,7 @@ class contactProfileViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.backButton.layer.cornerRadius = 4
         self.displayProf()
     }
     
@@ -44,4 +46,13 @@ class contactProfileViewController: UIViewController{
         self.TP1.text = dictionaryOfInfo["int1"] as! String
     }
 
+    @IBAction func backToList(sender: AnyObject) {
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("contactListViewController") as! contactListViewController
+        
+        self.presentViewController(resultViewController, animated:true, completion:nil)
+        
+    }
 }
