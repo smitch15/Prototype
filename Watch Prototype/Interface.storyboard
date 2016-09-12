@@ -231,7 +231,7 @@
             <objects>
                 <controller id="5Nv-gZ-eEa" customClass="ProfileInterfaceController" customModule="Watch_Prototype_Extension">
                     <items>
-                        <button width="136" height="37.5" alignment="left" title="NameButton" id="oUt-QX-bAB">
+                        <button width="136" height="37.5" alignment="left" title="NameButto" id="oUt-QX-bAB">
                             <connections>
                                 <action selector="changeName" destination="5Nv-gZ-eEa" id="CTV-FY-K27"/>
                             </connections>
