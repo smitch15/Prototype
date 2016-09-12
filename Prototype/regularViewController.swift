@@ -32,12 +32,13 @@ class regularViewController: UIViewController{
         
         if(defaults.stringForKey("isAppAlreadyLaunchedOnce") != nil){
             print("App already launched")
+            defaults.setBool(true, forKey: "isAppAlreadyLaunchedOnce")
             
             return true
         }else{
             // above call to function would instatiate the view controller that contains the tutorial video along with the prompt to enter personal info
             
-            defaults.setBool(true, forKey: "isAppAlreadyLaunchedOnce")
+            defaults.setBool(false, forKey: "isAppAlreadyLaunchedOnce")
             print("App launched first time")
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             
