@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="10032"/>
@@ -17,6 +17,7 @@
                         <separator alignment="left" hidden="YES" id="cww-z1-IMb" userLabel="SeparatorForConfirmSettings">
                             <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         </separator>
+                        <imageView alignment="center" hidden="YES" image="theVibeLabel" id="fyv-T3-YxQ"/>
                         <label alignment="left" hidden="YES" text="Name" id="g7Y-KA-Ki8"/>
                         <separator alignment="left" hidden="YES" id="K1E-3Q-owm">
                             <color key="color" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -116,8 +117,7 @@
                                 <segue destination="fE1-RR-VTF" kind="push" id="a4L-IQ-In9"/>
                             </connections>
                         </button>
-                        <label width="115.5" height="34.5" alignment="center" hidden="YES" text="The Vibe" textAlignment="center" id="0di-QI-niu"/>
-                        <group width="1" height="32" alignment="center" hidden="YES" id="sYV-lp-0vx">
+                        <group width="1" height="32" alignment="center" verticalAlignment="center" hidden="YES" id="sYV-lp-0vx">
                             <items>
                                 <button width="35" height="36.5" alignment="left" backgroundImage="happyFace" id="ECk-OQ-nka">
                                     <connections>
@@ -129,14 +129,14 @@
                                         <action selector="pressedNeutral" destination="AgC-eL-Hgc" id="KKd-3b-gEv"/>
                                     </connections>
                                 </button>
-                                <button width="38" height="33" alignment="center" backgroundImage="sadFace" id="bn9-Ws-hLv">
+                                <button width="38" height="33" alignment="right" backgroundImage="sadFace" id="bn9-Ws-hLv">
                                     <connections>
                                         <action selector="pressedUnhappy" destination="AgC-eL-Hgc" id="Qet-M5-Ghw"/>
                                     </connections>
                                 </button>
                             </items>
                         </group>
-                        <button width="1" alignment="left" hidden="YES" title="Maybe Later" id="XTM-85-H5Y">
+                        <button width="1" alignment="left" verticalAlignment="bottom" hidden="YES" title="Maybe Later" id="XTM-85-H5Y">
                             <color key="titleColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" red="0.41960784309999999" green="0.0" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" type="system" pointSize="22"/>
@@ -167,7 +167,7 @@
                         <outlet property="Separator2" destination="WMb-GW-2iW" id="wb7-tW-bgO"/>
                         <outlet property="Separator3" destination="SAj-1G-cfc" id="s44-CI-TWW"/>
                         <outlet property="Separator4" destination="efT-sz-rrl" id="In4-eB-So5"/>
-                        <outlet property="TheVibeLabel" destination="0di-QI-niu" id="ZR1-UM-KRT"/>
+                        <outlet property="TheVibeLabel" destination="fyv-T3-YxQ" id="oHu-Mi-ntr"/>
                         <outlet property="contactListButton" destination="t9u-Nb-jCq" id="NOo-cC-dGy"/>
                         <outlet property="emojiGroup" destination="sYV-lp-0vx" id="r1c-Gr-RX8"/>
                         <outlet property="happyButtonOutlet" destination="ECk-OQ-nka" id="FUu-SY-QoT"/>
@@ -224,7 +224,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-52" y="856"/>
+            <point key="canvasLocation" x="-50" y="693"/>
         </scene>
         <!--Profile Interface Controller-->
         <scene sceneID="0cJ-Km-m9J">
@@ -236,8 +236,29 @@
                                 <action selector="changeName" destination="5Nv-gZ-eEa" id="CTV-FY-K27"/>
                             </connections>
                         </button>
+                        <label width="136" height="24.5" alignment="left" text="Occupation" textAlignment="center" id="2iw-8Q-Shv"/>
+                        <separator alignment="left" id="4Wq-oO-MKV">
+                            <color key="color" red="0.95127833210000001" green="0.37017731129999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <button width="1" alignment="left" title="Job" id="Ld3-5H-OyQ">
+                            <connections>
+                                <action selector="changeOcc" destination="5Nv-gZ-eEa" id="Uax-oC-cJn"/>
+                            </connections>
+                        </button>
+                        <label width="126.5" height="21.5" alignment="left" text="Education" textAlignment="center" id="Xoj-yu-TBO"/>
+                        <separator alignment="left" id="YYL-6D-3b9">
+                            <color key="color" red="0.95127833210000001" green="0.37017731129999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <button width="1" alignment="left" title="University" id="L2M-vC-zvo">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="changeEdu" destination="5Nv-gZ-eEa" id="nXd-z6-mJy"/>
+                            </connections>
+                        </button>
                         <label width="132.5" height="23.5" alignment="left" text="Talking Points" textAlignment="center" id="AT0-OV-Ity"/>
-                        <separator alignment="left" id="1Z9-Ma-IFw"/>
+                        <separator alignment="left" id="1Z9-Ma-IFw">
+                            <color key="color" red="0.95127833210000001" green="0.37017731129999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
                         <button width="1" alignment="left" title="InterestOne" id="H7N-qW-6Um">
                             <connections>
                                 <action selector="changeInt1" destination="5Nv-gZ-eEa" id="vSL-d3-o6e"/>
@@ -251,21 +272,6 @@
                         <button width="1" alignment="left" title="InterestThree" id="Ndu-lq-qQR">
                             <connections>
                                 <action selector="changeInt3" destination="5Nv-gZ-eEa" id="6VV-l5-uAq"/>
-                            </connections>
-                        </button>
-                        <label width="136" height="24.5" alignment="left" text="Occupation" textAlignment="center" id="2iw-8Q-Shv"/>
-                        <separator alignment="left" id="4Wq-oO-MKV"/>
-                        <button width="1" alignment="left" title="Job" id="Ld3-5H-OyQ">
-                            <connections>
-                                <action selector="changeOcc" destination="5Nv-gZ-eEa" id="Uax-oC-cJn"/>
-                            </connections>
-                        </button>
-                        <label width="126.5" height="21.5" alignment="left" text="Education" textAlignment="center" id="Xoj-yu-TBO"/>
-                        <separator alignment="left" id="YYL-6D-3b9"/>
-                        <button width="1" alignment="left" title="University" id="L2M-vC-zvo">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="changeEdu" destination="5Nv-gZ-eEa" id="nXd-z6-mJy"/>
                             </connections>
                         </button>
                         <label width="136" height="24.5" alignment="left" hidden="YES" text="Label" textAlignment="center" id="BLi-yQ-9GX"/>
