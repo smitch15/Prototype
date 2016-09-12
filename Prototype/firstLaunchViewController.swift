@@ -6,6 +6,7 @@
 //  Copyright © 2016 Anthony Parente. All rights reserved.
 //
 
+
 import UIKit
 import AVKit
 import AVFoundation
@@ -18,32 +19,39 @@ class firstLaunchViewController: UIViewController {
     @IBOutlet weak var companyText: UITextField!
     @IBOutlet weak var positionText: UITextField!
     @IBOutlet weak var emailText: UITextField!
+    @IBOutlet weak var backButton: UIButton!
     
     let avPlayerViewController = AVPlayerViewController()
     var avplayer:AVPlayer?
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        if(defaults.stringForKey("userFirstName") != nil){
+        self.backButton.hidden = true
+        if(defaults.stringForKey("userFirstName") != ""){
             self.f_NameText.placeholder = defaults.stringForKey("userFirstName")
         }
-        if(defaults.stringForKey("userLastName") != nil){
+        if(defaults.stringForKey("userLastName") != ""){
             self.L_NameText.placeholder = defaults.stringForKey("userLastName")
         }
-        if(defaults.stringForKey("userEducation") != nil){
+        if(defaults.stringForKey("userEducation") != ""){
             self.eduText.placeholder = defaults.stringForKey("userEducation")
         }
-        if(defaults.stringForKey("userCompanyName") != nil){
+        if(defaults.stringForKey("userCompanyName") != ""){
             self.companyText.placeholder = defaults.stringForKey("userCompanyName")
         }
-        if(defaults.stringForKey("userOccupation") != nil){
+        if(defaults.stringForKey("userOccupation") != ""){
             self.positionText.placeholder = defaults.stringForKey("userOccupation")
         }
-        if(defaults.stringForKey("userEmail") != nil){
+        if(defaults.stringForKey("userEmail") != ""){
             self.emailText.placeholder = defaults.stringForKey("userEmail")
+        }
+        if(defaults.boolForKey("isAppAlreadyLaunchedOnce") == true){
+            self.backButton.layer.cornerRadius = 4
+            self.backButton.hidden = false
         }
     }
     
@@ -82,9 +90,16 @@ class firstLaunchViewController: UIViewController {
         defaults.setObject(position, forKey: "userOccupation")
         defaults.setObject(email, forKey: "userEmail")
         
+    }
+    
+    @IBAction func backToHome(sender: AnyObject) {
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("regularViewController") as! regularViewController
+        
+        self.presentViewController(resultViewController, animated:true, completion:nil)
         
     }
-      
-    
     
 }
