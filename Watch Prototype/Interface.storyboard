@@ -18,7 +18,10 @@
                             <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         </separator>
                         <imageView alignment="center" hidden="YES" image="theVibeLabel" id="fyv-T3-YxQ"/>
-                        <label alignment="left" hidden="YES" text="Name" id="g7Y-KA-Ki8"/>
+                        <label alignment="left" hidden="YES" text="Name" id="g7Y-KA-Ki8">
+                            <color key="textColor" red="0.95127833210000001" green="0.37017731129999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
                         <separator alignment="left" hidden="YES" id="K1E-3Q-owm">
                             <color key="color" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </separator>
@@ -27,7 +30,10 @@
                                 <action selector="pressedName" destination="AgC-eL-Hgc" id="DNZ-JL-Yye"/>
                             </connections>
                         </button>
-                        <label alignment="left" hidden="YES" text="Occupation" id="JKQ-PZ-kPT"/>
+                        <label alignment="left" hidden="YES" text="Occupation" id="JKQ-PZ-kPT">
+                            <color key="textColor" red="0.95127833210000001" green="0.37017731129999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
                         <separator alignment="left" hidden="YES" id="WMb-GW-2iW">
                             <color key="color" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </separator>
@@ -36,7 +42,10 @@
                                 <action selector="pressedOcc" destination="AgC-eL-Hgc" id="Uif-2Q-gTp"/>
                             </connections>
                         </button>
-                        <label alignment="left" hidden="YES" text="Education" id="6TL-LF-VeJ"/>
+                        <label alignment="left" hidden="YES" text="Education" id="6TL-LF-VeJ">
+                            <color key="textColor" red="0.95127833210000001" green="0.37017731129999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
                         <separator alignment="left" hidden="YES" id="SAj-1G-cfc">
                             <color key="color" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </separator>
@@ -46,7 +55,10 @@
                                 <action selector="pressedEducationButton" destination="AgC-eL-Hgc" id="DCh-N3-GdE"/>
                             </connections>
                         </button>
-                        <label width="133.5" alignment="left" hidden="YES" text="Talking Points" textAlignment="left" id="Sso-S3-ePe"/>
+                        <label width="133.5" alignment="left" hidden="YES" text="Talking Points" textAlignment="left" id="Sso-S3-ePe">
+                            <color key="textColor" red="0.95127833210000001" green="0.37017731129999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
                         <separator alignment="left" hidden="YES" id="efT-sz-rrl">
                             <color key="color" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </separator>
@@ -231,45 +243,95 @@
             <objects>
                 <controller id="5Nv-gZ-eEa" customClass="ProfileInterfaceController" customModule="Watch_Prototype_Extension">
                     <items>
-                        <button width="136" height="37.5" alignment="left" title="NameButton" id="oUt-QX-bAB">
+                        <button alignment="left" id="oUt-QX-bAB">
+                            <group key="contentGroup" width="136" height="37.5" alignment="left" id="s3U-Yy-D9n">
+                                <items>
+                                    <label width="136" height="29.5" alignment="center" text="Name" textAlignment="center" numberOfLines="2" id="fdk-iY-E3N">
+                                        <fontDescription key="font" type="system" weight="heavy" pointSize="20"/>
+                                    </label>
+                                </items>
+                            </group>
                             <connections>
                                 <action selector="changeName" destination="5Nv-gZ-eEa" id="CTV-FY-K27"/>
                             </connections>
                         </button>
-                        <label width="136" height="24.5" alignment="left" text="Occupation" textAlignment="center" id="2iw-8Q-Shv"/>
+                        <label width="136" height="24.5" alignment="left" text="Occupation" textAlignment="left" id="2iw-8Q-Shv">
+                            <color key="textColor" red="0.95127833210000001" green="0.37017731129999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
                         <separator alignment="left" id="4Wq-oO-MKV">
                             <color key="color" red="0.95127833210000001" green="0.37017731129999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </separator>
-                        <button width="1" alignment="left" title="Job" id="Ld3-5H-OyQ">
+                        <button alignment="left" id="Ld3-5H-OyQ">
+                            <group key="contentGroup" width="1" alignment="left" id="TBb-Cq-MyO">
+                                <items>
+                                    <label alignment="center" text="Occ" textAlignment="center" numberOfLines="2" id="H0a-pI-2om">
+                                        <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                    </label>
+                                </items>
+                            </group>
                             <connections>
                                 <action selector="changeOcc" destination="5Nv-gZ-eEa" id="Uax-oC-cJn"/>
                             </connections>
                         </button>
-                        <label width="126.5" height="21.5" alignment="left" text="Education" textAlignment="center" id="Xoj-yu-TBO"/>
+                        <label width="126.5" height="21.5" alignment="left" text="Education" textAlignment="left" id="Xoj-yu-TBO">
+                            <color key="textColor" red="0.95127833210000001" green="0.37017731129999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
                         <separator alignment="left" id="YYL-6D-3b9">
                             <color key="color" red="0.95127833210000001" green="0.37017731129999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </separator>
-                        <button width="1" alignment="left" title="University" id="L2M-vC-zvo">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <button alignment="left" id="L2M-vC-zvo">
+                            <group key="contentGroup" width="1" alignment="left" id="yJa-aP-WVH">
+                                <items>
+                                    <label alignment="center" text="University" textAlignment="center" numberOfLines="2" id="IXc-wO-aUR">
+                                        <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                    </label>
+                                </items>
+                            </group>
                             <connections>
                                 <action selector="changeEdu" destination="5Nv-gZ-eEa" id="nXd-z6-mJy"/>
                             </connections>
                         </button>
-                        <label width="132.5" height="23.5" alignment="left" text="Talking Points" textAlignment="center" id="AT0-OV-Ity"/>
+                        <label width="132.5" height="23.5" alignment="left" text="Talking Points" textAlignment="left" id="AT0-OV-Ity">
+                            <color key="textColor" red="0.95127833210000001" green="0.37017731129999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
                         <separator alignment="left" id="1Z9-Ma-IFw">
                             <color key="color" red="0.95127833210000001" green="0.37017731129999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </separator>
-                        <button width="1" alignment="left" title="InterestOne" id="H7N-qW-6Um">
+                        <button alignment="left" id="H7N-qW-6Um">
+                            <group key="contentGroup" width="1" alignment="left" id="4cf-Rs-7Jq">
+                                <items>
+                                    <label alignment="center" text="Talk Point 1" textAlignment="center" numberOfLines="5" id="Xd8-PY-XSg">
+                                        <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                    </label>
+                                </items>
+                            </group>
                             <connections>
                                 <action selector="changeInt1" destination="5Nv-gZ-eEa" id="vSL-d3-o6e"/>
                             </connections>
                         </button>
-                        <button width="1" alignment="left" title="InterestTwo" id="hxo-Sm-2t3">
+                        <button alignment="left" id="hxo-Sm-2t3">
+                            <group key="contentGroup" width="1" alignment="left" id="RXe-6o-62e">
+                                <items>
+                                    <label alignment="center" text="Talk Point 2" textAlignment="center" numberOfLines="6" id="4i7-EU-W2U">
+                                        <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                    </label>
+                                </items>
+                            </group>
                             <connections>
                                 <action selector="changeInt2" destination="5Nv-gZ-eEa" id="KlZ-d5-efc"/>
                             </connections>
                         </button>
-                        <button width="1" alignment="left" title="InterestThree" id="Ndu-lq-qQR">
+                        <button alignment="left" id="Ndu-lq-qQR">
+                            <group key="contentGroup" width="1" alignment="left" id="MPa-04-qdg">
+                                <items>
+                                    <label alignment="center" text="Talk Point 3" textAlignment="center" numberOfLines="6" id="bVJ-gS-ECx">
+                                        <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                    </label>
+                                </items>
+                            </group>
                             <connections>
                                 <action selector="changeInt3" destination="5Nv-gZ-eEa" id="6VV-l5-uAq"/>
                             </connections>
@@ -278,15 +340,21 @@
                     </items>
                     <connections>
                         <outlet property="eduButton" destination="L2M-vC-zvo" id="qgI-lB-RkO"/>
+                        <outlet property="eduLabel" destination="IXc-wO-aUR" id="ccq-b8-9Lt"/>
                         <outlet property="intOneButton" destination="H7N-qW-6Um" id="Hb0-1m-uY8"/>
+                        <outlet property="intOneLabel" destination="Xd8-PY-XSg" id="tu3-SH-dE9"/>
                         <outlet property="intThreeButton" destination="Ndu-lq-qQR" id="gx0-Ld-nig"/>
+                        <outlet property="intThreeLabel" destination="bVJ-gS-ECx" id="e8Y-ep-GnR"/>
                         <outlet property="intTwoButton" destination="hxo-Sm-2t3" id="alv-fb-Nm0"/>
+                        <outlet property="intTwoLabel" destination="4i7-EU-W2U" id="iYX-Eu-XHr"/>
                         <outlet property="jobButton" destination="Ld3-5H-OyQ" id="Phn-BY-60w"/>
+                        <outlet property="jobLabel" destination="H0a-pI-2om" id="tBS-rE-3sM"/>
                         <outlet property="nameButton" destination="oUt-QX-bAB" id="uh0-wZ-dAI"/>
+                        <outlet property="nameLabel" destination="fdk-iY-E3N" id="AvW-qX-9nN"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="294" y="716.5"/>
+            <point key="canvasLocation" x="294" y="716"/>
         </scene>
     </scenes>
 </document>
