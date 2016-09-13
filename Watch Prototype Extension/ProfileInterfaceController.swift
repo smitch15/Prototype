@@ -2,7 +2,7 @@
 //  ProfileInterfaceController.swift
 //  Prototype
 //
-//  Created by Steven Mitchell on 9/10/16.
+//  Created by Anthony Parente on 9/11/16.
 //  Copyright © 2016 Anthony Parente. All rights reserved.
 //
 
@@ -12,14 +12,6 @@ import Foundation
 
 class ProfileInterfaceController: WKInterfaceController {
     
-   /* @IBOutlet var eduButton: WKInterfaceButton!
-    @IBOutlet var jobButton: WKInterfaceButton!
-    @IBOutlet var intThreeButton: WKInterfaceButton!
-    @IBOutlet var intTwoButton: WKInterfaceButton!
-    @IBOutlet var intOneButton: WKInterfaceButton!
-    @IBOutlet var emojiButton: WKInterfaceButton!
-    @IBOutlet var nameButton: WKInterfaceButton!
-    */
     @IBOutlet var nameLabel: WKInterfaceLabel!
     @IBOutlet var jobLabel: WKInterfaceLabel!
     @IBOutlet var eduLabel: WKInterfaceLabel!
@@ -33,19 +25,14 @@ class ProfileInterfaceController: WKInterfaceController {
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
+        setTitle("Contacts")
         // get the contactList
         contactListDict = self.appGroupDefaults.dictionaryForKey("contactListInfo")!
         // access profileInfo from contListDict using name string that was selected
         var profileInfo: Dictionary<String, String> = contactListDict[(context as? NSCopying)!]! as! Dictionary<String, String>
-        self.eduLabel.setText(profileInfo["edu"])
-        setTitle(profileInfo["edu"])
-        self.jobLabel.setText(profileInfo["occ"])
-        self.intOneLabel.setText(profileInfo["int1"])
-        self.intTwoLabel.setText(profileInfo["int2"])
-        self.intThreeLabel.setText(profileInfo["int3"])
-        let happyEmoji = "\u{1F602}"
-        let flatEmoji = "\u{1F610}"
-        let upsetEmoji = "\u{1F612}"
+        let happyEmoji = " \u{1F603}"
+        let flatEmoji = " \u{1F610}"
+        let upsetEmoji = " \u{1F612}"
         
         let vibe:String = profileInfo["Vibe"]!
         if (vibe == "Neutral"){
@@ -54,7 +41,16 @@ class ProfileInterfaceController: WKInterfaceController {
             self.nameLabel.setText((context as? String)! + upsetEmoji)
         } else if (vibe == "Happy"){
             self.nameLabel.setText((context as? String)! + happyEmoji)
+        }else{
+             self.nameLabel.setText(context as? String)
         }
+        self.eduLabel.setText(profileInfo["edu"])
+        self.jobLabel.setText(profileInfo["occ"])
+        self.intOneLabel.setText(profileInfo["int1"])
+        self.intTwoLabel.setText(profileInfo["int2"])
+        self.intThreeLabel.setText(profileInfo["int3"])
+        
+        
         
     }
     
