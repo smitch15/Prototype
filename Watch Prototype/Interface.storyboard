@@ -252,7 +252,7 @@
                                 </items>
                             </group>
                             <connections>
-                                <action selector="changeName" destination="5Nv-gZ-eEa" id="CTV-FY-K27"/>
+                                <action selector="changeName" destination="5Nv-gZ-eEa" id="vN3-LY-qkg"/>
                             </connections>
                         </button>
                         <label width="136" height="24.5" alignment="left" text="Occupation" textAlignment="left" id="2iw-8Q-Shv">
@@ -271,7 +271,7 @@
                                 </items>
                             </group>
                             <connections>
-                                <action selector="changeOcc" destination="5Nv-gZ-eEa" id="Uax-oC-cJn"/>
+                                <action selector="changeOcc" destination="5Nv-gZ-eEa" id="4rd-1p-cgq"/>
                             </connections>
                         </button>
                         <label width="126.5" height="21.5" alignment="left" text="Education" textAlignment="left" id="Xoj-yu-TBO">
@@ -290,7 +290,7 @@
                                 </items>
                             </group>
                             <connections>
-                                <action selector="changeEdu" destination="5Nv-gZ-eEa" id="nXd-z6-mJy"/>
+                                <action selector="changeEdu" destination="5Nv-gZ-eEa" id="6E8-uW-peE"/>
                             </connections>
                         </button>
                         <label width="132.5" height="23.5" alignment="left" text="Talking Points" textAlignment="left" id="AT0-OV-Ity">
@@ -309,7 +309,7 @@
                                 </items>
                             </group>
                             <connections>
-                                <action selector="changeInt1" destination="5Nv-gZ-eEa" id="vSL-d3-o6e"/>
+                                <action selector="changeInt1" destination="5Nv-gZ-eEa" id="hF1-21-LO9"/>
                             </connections>
                         </button>
                         <button alignment="left" id="hxo-Sm-2t3">
@@ -321,7 +321,7 @@
                                 </items>
                             </group>
                             <connections>
-                                <action selector="changeInt2" destination="5Nv-gZ-eEa" id="KlZ-d5-efc"/>
+                                <action selector="changeInt2" destination="5Nv-gZ-eEa" id="08R-wI-Wv7"/>
                             </connections>
                         </button>
                         <button alignment="left" id="Ndu-lq-qQR">
@@ -333,24 +333,18 @@
                                 </items>
                             </group>
                             <connections>
-                                <action selector="changeInt3" destination="5Nv-gZ-eEa" id="6VV-l5-uAq"/>
+                                <action selector="changeInt3" destination="5Nv-gZ-eEa" id="bQC-lb-fJz"/>
                             </connections>
                         </button>
                         <label width="136" height="24.5" alignment="left" hidden="YES" text="Label" textAlignment="center" id="BLi-yQ-9GX"/>
                     </items>
                     <connections>
-                        <outlet property="eduButton" destination="L2M-vC-zvo" id="qgI-lB-RkO"/>
-                        <outlet property="eduLabel" destination="IXc-wO-aUR" id="ccq-b8-9Lt"/>
-                        <outlet property="intOneButton" destination="H7N-qW-6Um" id="Hb0-1m-uY8"/>
-                        <outlet property="intOneLabel" destination="Xd8-PY-XSg" id="tu3-SH-dE9"/>
-                        <outlet property="intThreeButton" destination="Ndu-lq-qQR" id="gx0-Ld-nig"/>
-                        <outlet property="intThreeLabel" destination="bVJ-gS-ECx" id="e8Y-ep-GnR"/>
-                        <outlet property="intTwoButton" destination="hxo-Sm-2t3" id="alv-fb-Nm0"/>
-                        <outlet property="intTwoLabel" destination="4i7-EU-W2U" id="iYX-Eu-XHr"/>
-                        <outlet property="jobButton" destination="Ld3-5H-OyQ" id="Phn-BY-60w"/>
-                        <outlet property="jobLabel" destination="H0a-pI-2om" id="tBS-rE-3sM"/>
-                        <outlet property="nameButton" destination="oUt-QX-bAB" id="uh0-wZ-dAI"/>
-                        <outlet property="nameLabel" destination="fdk-iY-E3N" id="AvW-qX-9nN"/>
+                        <outlet property="eduLabel" destination="IXc-wO-aUR" id="3E4-x0-OeP"/>
+                        <outlet property="intOneLabel" destination="Xd8-PY-XSg" id="GXE-az-ToF"/>
+                        <outlet property="intThreeLabel" destination="bVJ-gS-ECx" id="PU9-zK-ohv"/>
+                        <outlet property="intTwoLabel" destination="4i7-EU-W2U" id="5Ej-yd-6wL"/>
+                        <outlet property="jobLabel" destination="H0a-pI-2om" id="VZO-14-RB3"/>
+                        <outlet property="nameLabel" destination="fdk-iY-E3N" id="SKx-bl-WS0"/>
                     </connections>
                 </controller>
             </objects>
