@@ -62,42 +62,20 @@
                         <separator alignment="left" hidden="YES" id="efT-sz-rrl">
                             <color key="color" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </separator>
-                        <button alignment="left" hidden="YES" id="0gX-zN-OF0">
-                            <group key="contentGroup" width="1" alignment="left" id="1Cq-jC-VfA">
-                                <items>
-                                    <label width="1" alignment="center" text="Interest Num 1" textAlignment="center" numberOfLines="8" id="Obb-Kc-gDZ">
-                                        <fontDescription key="font" type="system" pointSize="15"/>
-                                    </label>
-                                </items>
-                            </group>
-                            <connections>
-                                <action selector="pressedInt1" destination="AgC-eL-Hgc" id="0eL-VO-Rej"/>
-                            </connections>
-                        </button>
-                        <button alignment="left" hidden="YES" id="SR4-Lx-Zx2">
-                            <group key="contentGroup" width="1" alignment="left" id="lbI-CY-DDM">
-                                <items>
-                                    <label width="1" alignment="center" text="Interest Num 2" textAlignment="center" numberOfLines="8" id="Xpp-AY-uY4">
-                                        <fontDescription key="font" type="system" pointSize="15"/>
-                                    </label>
-                                </items>
-                            </group>
-                            <connections>
-                                <action selector="pressedInt2" destination="AgC-eL-Hgc" id="l2Y-6u-6v2"/>
-                            </connections>
-                        </button>
-                        <button alignment="left" hidden="YES" id="sU8-Rd-PlP">
-                            <group key="contentGroup" width="1" alignment="left" id="dds-JT-PUB">
-                                <items>
-                                    <label width="1" alignment="center" text="Interest Num 3" textAlignment="center" numberOfLines="8" id="Jos-Ga-8El">
-                                        <fontDescription key="font" type="system" pointSize="15"/>
-                                    </label>
-                                </items>
-                            </group>
-                            <connections>
-                                <action selector="pressedInt3" destination="AgC-eL-Hgc" id="WTH-vf-VIw"/>
-                            </connections>
-                        </button>
+                        <table alignment="center" hidden="YES" id="Sh7-va-tsn">
+                            <items>
+                                <tableRow identifier="talkingPointRowController" id="UzC-Cs-P47" customClass="talkingPointRowController" customModule="Watch_Prototype_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="olV-Xd-390">
+                                        <items>
+                                            <label alignment="center" verticalAlignment="center" text="talkPointLabel" textAlignment="center" numberOfLines="8" id="zmG-KP-QyM"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="talkPointLabel" destination="zmG-KP-QyM" id="5Xo-GG-K7o"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
                         <button width="1" alignment="left" hidden="YES" title="Confirm" id="r55-zx-aVC">
                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -162,12 +140,6 @@
                         <outlet property="ConfirmationSettingsLabel" destination="Lma-bu-WrY" id="fph-cd-5eB"/>
                         <outlet property="DeleteButton" destination="eWi-gv-Ufo" id="907-yN-PHX"/>
                         <outlet property="EducationButton" destination="aXQ-3B-htP" id="SJb-Ac-HFv"/>
-                        <outlet property="IntNum1Label" destination="Obb-Kc-gDZ" id="wD3-JX-GnS"/>
-                        <outlet property="IntNum2Label" destination="Xpp-AY-uY4" id="rAj-Ds-aNo"/>
-                        <outlet property="IntNum3Label" destination="Jos-Ga-8El" id="Jhz-kN-QbM"/>
-                        <outlet property="InterestNum1" destination="0gX-zN-OF0" id="Z36-zq-cUF"/>
-                        <outlet property="InterestNum2" destination="SR4-Lx-Zx2" id="NC7-qv-yY0"/>
-                        <outlet property="InterestNum3" destination="sU8-Rd-PlP" id="7mm-nh-qOo"/>
                         <outlet property="LabelConfirmSettings" destination="cww-z1-IMb" id="eJ6-Xy-8qu"/>
                         <outlet property="LabelForEducation" destination="6TL-LF-VeJ" id="cDB-15-dId"/>
                         <outlet property="LabelForName" destination="g7Y-KA-Ki8" id="nw0-9W-57H"/>
@@ -187,11 +159,12 @@
                         <outlet property="maybeLaterButton" destination="XTM-85-H5Y" id="DNt-pG-BS7"/>
                         <outlet property="neutralButtonOutlet" destination="4oj-zW-2Nu" id="w8w-W8-ih5"/>
                         <outlet property="pathosButton" destination="kHV-qU-wub" id="I2H-Tx-DRu"/>
+                        <outlet property="table" destination="Sh7-va-tsn" id="B50-69-Pkf"/>
                         <outlet property="unhappyButtonOutlet" destination="bn9-Ws-hLv" id="mNR-l5-YYU"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="95" y="260"/>
+            <point key="canvasLocation" x="95" y="258.5"/>
         </scene>
         <!--Contact List-->
         <scene sceneID="oza-SX-56K">
@@ -300,55 +273,32 @@
                         <separator alignment="left" id="1Z9-Ma-IFw">
                             <color key="color" red="0.95127833210000001" green="0.37017731129999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </separator>
-                        <button alignment="left" id="H7N-qW-6Um">
-                            <group key="contentGroup" width="1" alignment="left" id="4cf-Rs-7Jq">
-                                <items>
-                                    <label alignment="center" text="Talk Point 1" textAlignment="center" numberOfLines="5" id="Xd8-PY-XSg">
-                                        <fontDescription key="font" type="boldSystem" pointSize="16"/>
-                                    </label>
-                                </items>
-                            </group>
-                            <connections>
-                                <action selector="changeInt1" destination="5Nv-gZ-eEa" id="hF1-21-LO9"/>
-                            </connections>
-                        </button>
-                        <button alignment="left" id="hxo-Sm-2t3">
-                            <group key="contentGroup" width="1" alignment="left" id="RXe-6o-62e">
-                                <items>
-                                    <label alignment="center" text="Talk Point 2" textAlignment="center" numberOfLines="6" id="4i7-EU-W2U">
-                                        <fontDescription key="font" type="boldSystem" pointSize="16"/>
-                                    </label>
-                                </items>
-                            </group>
-                            <connections>
-                                <action selector="changeInt2" destination="5Nv-gZ-eEa" id="08R-wI-Wv7"/>
-                            </connections>
-                        </button>
-                        <button alignment="left" id="Ndu-lq-qQR">
-                            <group key="contentGroup" width="1" alignment="left" id="MPa-04-qdg">
-                                <items>
-                                    <label alignment="center" text="Talk Point 3" textAlignment="center" numberOfLines="6" id="bVJ-gS-ECx">
-                                        <fontDescription key="font" type="boldSystem" pointSize="16"/>
-                                    </label>
-                                </items>
-                            </group>
-                            <connections>
-                                <action selector="changeInt3" destination="5Nv-gZ-eEa" id="bQC-lb-fJz"/>
-                            </connections>
-                        </button>
-                        <label width="136" height="24.5" alignment="left" hidden="YES" text="Label" textAlignment="center" id="BLi-yQ-9GX"/>
+                        <table alignment="left" id="gnk-LZ-tXi">
+                            <items>
+                                <tableRow identifier="profVisualRowController" id="E91-67-fkG" customClass="profVisualRowController" customModule="Watch_Prototype_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="wlf-qo-HgH">
+                                        <items>
+                                            <label alignment="center" verticalAlignment="center" text="talkPointLabel" textAlignment="center" numberOfLines="8" id="u1F-Ku-LEU">
+                                                <fontDescription key="font" type="boldSystem" pointSize="14"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="talkPointLabel" destination="u1F-Ku-LEU" id="y3G-aK-cFd"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
                     </items>
                     <connections>
                         <outlet property="eduLabel" destination="IXc-wO-aUR" id="3E4-x0-OeP"/>
-                        <outlet property="intOneLabel" destination="Xd8-PY-XSg" id="GXE-az-ToF"/>
-                        <outlet property="intThreeLabel" destination="bVJ-gS-ECx" id="PU9-zK-ohv"/>
-                        <outlet property="intTwoLabel" destination="4i7-EU-W2U" id="5Ej-yd-6wL"/>
                         <outlet property="jobLabel" destination="H0a-pI-2om" id="VZO-14-RB3"/>
                         <outlet property="nameLabel" destination="fdk-iY-E3N" id="SKx-bl-WS0"/>
+                        <outlet property="table" destination="gnk-LZ-tXi" id="Ipf-07-9jP"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="294" y="716"/>
+            <point key="canvasLocation" x="298" y="737.5"/>
         </scene>
     </scenes>
 </document>
