@@ -11,25 +11,18 @@ import Foundation
 import WatchConnectivity
 
 class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate, WCSessionDelegate {
-
+    
     let audioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("audioFile", ofType: "wav")!)
     let arrayURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("array", ofType: "txt")!)
     
     @IBOutlet var EducationButton: WKInterfaceButton!
-    @IBOutlet var InterestNum3: WKInterfaceButton!
-    @IBOutlet var InterestNum2: WKInterfaceButton!
-    @IBOutlet var InterestNum1: WKInterfaceButton!
-    
-    @IBOutlet var IntNum1Label: WKInterfaceLabel!
-    @IBOutlet var IntNum2Label: WKInterfaceLabel!
-    @IBOutlet var IntNum3Label: WKInterfaceLabel!
+   
     
     @IBOutlet var NameButton: WKInterfaceButton!
     @IBOutlet var OccButton: WKInterfaceButton!
     @IBOutlet var ConfirmButton: WKInterfaceButton!
     @IBOutlet var DeleteButton: WKInterfaceButton!
     
-    @IBOutlet var processingLabel: WKInterfaceLabel!
     @IBOutlet var pathosButton: WKInterfaceButton!
     @IBOutlet var contactListButton: WKInterfaceButton!
     @IBOutlet var ConfirmationSettingsLabel: WKInterfaceLabel!
@@ -52,7 +45,9 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     @IBOutlet var unhappyButtonOutlet: WKInterfaceButton!
     @IBOutlet var maybeLaterButton: WKInterfaceButton!
     
-    var profileInfo: Dictionary <String, String> = [:]
+    @IBOutlet var table: WKInterfaceTable!
+    
+    var profileInfo: Dictionary <String, AnyObject> = [:]
     
     
     private let session = WCSession.defaultSession()
@@ -62,20 +57,51 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         super.awakeWithContext(context)
         // Configure interface objects here.
     }
-
+    
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         WCSession.defaultSession().delegate = self
         WCSession.defaultSession().activateSession()
     }
-
+    
     
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-
+    override func table(table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int) {
+        var talkingPointArray:NSMutableArray = self.profileInfo["talkingPointArray"] as! NSMutableArray
+        
+        if(rowIndex == talkingPointArray.count){
+            print("plus")
+            
+            self.presentTextInputControllerWithSuggestions(nil, allowedInputMode: WKTextInputMode.Plain, completion: { (results) -> Void in
+                if results != nil && results!.count > 0 {
+                    let aResult = results![0] as? String
+                    talkingPointArray.addObject(aResult!)
+                    self.profileInfo["talkingPointArray"] = talkingPointArray
+                    self.setupTable(talkingPointArray)
+                }
+            })
+        
+        }else{
+            print("the others")
+            
+            self.presentTextInputControllerWithSuggestions(nil, allowedInputMode: WKTextInputMode.Plain, completion: { (results) -> Void in
+                if results != nil && results!.count > 0 { //selection made
+                    let aResult = results?[0] as? String
+                    talkingPointArray.removeObjectAtIndex(rowIndex)
+                    talkingPointArray.addObject(aResult!)
+                    self.profileInfo["talkingPointArray"] = talkingPointArray
+                    self.setupTable(talkingPointArray)
+                }
+ 
+            })
+        }
+        
+    }
+    
     @IBAction func buttonPressed() {
         print("pressed")
         self.audioRecording()
@@ -120,7 +146,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
             let userCompany = userInfo_MutArray[3] as! String
             let userOcc = userInfo_MutArray[4] as! String
             let transcriptDictArray = masterArray[12] as! NSMutableArray
-           
+            
             
             
             //print(keywordArray, entityTextArray, entityTypeArray, taxonomyArray, conceptArray, emotionArray, occOrg_TR_MutArray, occCompany_Entity_MutArray, occJobTitle_Entity_MutArray, education_MutArray, edu_MutArray_through_TR, userInfo_MutArray, userFirstName, userLastName, userEducation, userCompany, userOcc)
@@ -138,7 +164,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
             }
             
             if(emotionArray.count > 0){
-               
+                
             }
             
             let edu = self.setEducation(education_MutArray, edu_MutArray_through_TR: edu_MutArray_through_TR, userEducation: userEducation)
@@ -146,11 +172,11 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
             self.contactNameFunc(entityTextArray, entityTypeArray: entityTypeArray, userFirstName: userFirstName, userLastName: userLastName)
             self.occupationFunc(occOrg_TR_MutArray, occCompany_Entity_MutArray: occCompany_Entity_MutArray, occJobTitle_Entity_MutArray: occJobTitle_Entity_MutArray, edu_MutArray_through_TR: edu_MutArray_through_TR, userCompany: userCompany, userOcc: userOcc)
             self.interestFunc(transcriptDictArray)
-           // if(taxonomyArray_WO_slashes.count > 0){
-             //   self.InterestNum3.setTitle(taxonomyArray_WO_slashes[1] as! String)
+            // if(taxonomyArray_WO_slashes.count > 0){
+            //   self.InterestNum3.setTitle(taxonomyArray_WO_slashes[1] as! String)
             //}
             
-        
+            
         }
     }
     
@@ -158,6 +184,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         var interestSent1 = "empty"
         var interestSent2 = "empty"
         var interestSent3 = "empty"
+        var talkingPointArray: NSMutableArray = []
         
         if(transcriptDictArray.count > 0) {
             let dictionary = transcriptDictArray[0] as! Dictionary<String, NSMutableArray>
@@ -175,6 +202,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
                         if(i == 2){
                             interestSent3 = interestArray[2] as! String
                         }
+                        talkingPointArray.addObject(interestArray[i] as! String)
                     }
                 }
             }
@@ -193,18 +221,16 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
                         else if(interestSent3 == "empty"){
                             interestSent3 = wantArray[i] as! String
                         }
+                        talkingPointArray.addObject(wantArray[i] as! String)
                     }
                 }
             }
             
+            print(talkingPointArray)
+            self.profileInfo["talkingPointArray"] = talkingPointArray
             
-            self.IntNum1Label.setText("1. \(interestSent1)")
-            self.profileInfo["int1"] = interestSent1
-            self.IntNum2Label.setText("2. \(interestSent2)")
-            self.profileInfo["int2"] = interestSent2
-            self.IntNum3Label.setText("3. \(interestSent3)")
-            self.profileInfo["int3"] = interestSent3
-            print(interestSent1,interestSent2,interestSent3)
+            self.setupTable(talkingPointArray)
+            
         }
     }
     
@@ -224,9 +250,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         self.EducationButton.setHidden(value)
         self.LabelForTalkPoints.setHidden(value)
         self.Separator4.setHidden(value)
-        self.InterestNum1.setHidden(value)
-        self.InterestNum2.setHidden(value)
-        self.InterestNum3.setHidden(value)
+        self.table.setHidden(value)
         self.ConfirmButton.setHidden(value)
         self.DeleteButton.setHidden(value)
         
@@ -238,6 +262,26 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         }
     }
     
+    func setupTable(talkPointArray:NSMutableArray) {
+        let plusColor = UIColor(red: 0.95127833210000001, green:0.37017731129999998, blue:1, alpha:1)
+        if(talkPointArray.count > 0){
+            let numOfRows = talkPointArray.count + 1
+            
+            table.setNumberOfRows(numOfRows, withRowType: "talkingPointRowController")
+            
+            for(var i = 0; i < talkPointArray.count; i+=1) {
+                if let row = table.rowControllerAtIndex(i) as? talkingPointRowController {
+                    row.talkPointLabel.setText(talkPointArray[i] as? String)
+                }
+            }
+            if let row = table.rowControllerAtIndex(talkPointArray.count) as? talkingPointRowController{
+                row.talkPointLabel.setText("+")
+                row.talkPointLabel.setTextColor(plusColor)
+            }
+            
+        }
+        
+    }
     func setEducation(education_MutArray:NSMutableArray, edu_MutArray_through_TR:NSMutableArray, userEducation: String) -> String{
         var education: String = "Please Enter Education"
         
@@ -275,7 +319,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         for(var i = 0; i < entityTypeArray.count; i += 1){
             if(entityTypeArray[i] as! String == "Person"){
                 if(entityTextArray[i] as! String != userFullName && entityTextArray[i] as! String != userFirstName) {
-                    namePosition = i as Int                    
+                    namePosition = i as Int
                 }
             }
         }
@@ -360,7 +404,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
         self.profileInfo["occ"] = final
         print(final)
     }
-
+    
     @IBAction func contctListChecker() {
         self.pathosButton.setHidden(true)
         self.contactListButton.setHidden(true)
@@ -385,7 +429,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
             }
             
         })
-
+        
     }
     
     func loadingScreenVisual(boolValue: Bool){
@@ -393,7 +437,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
             self.loadingScreen.setImageNamed("frame")
             self.loadingScreen.startAnimatingWithImagesInRange(NSRange(location: 0,length: 243), duration: 8, repeatCount: Int.max)
         }
- 
+        
         self.loadingScreen.setHidden(boolValue)
         
         if(boolValue == true){
@@ -413,9 +457,8 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     }
     
     @IBAction func pressedDelete() {
-        //TODO
-        //don't save the data that went through as a contact
-        //go back to recording screen
+        let hideUI = true
+        self.toggleProfileUI(hideUI)
     }
     
     @IBAction func pressedName() {
@@ -439,37 +482,19 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     }
     
     // combine all three talking points into a table and make a plus button to add more if wanted
-    @IBAction func pressedInt1() {
+    @IBAction func pressedTalkingPoint() {
         self.presentTextInputControllerWithSuggestions(nil, allowedInputMode: WKTextInputMode.AllowEmoji, completion: { (results) -> Void in
             if results != nil && results!.count > 0 { //selection made
                 let aResult = results?[0] as? String
-                self.profileInfo["int1"] = aResult
-                
+                var array = self.profileInfo["talkingPointArray"] as! NSMutableArray
+                array.addObject(aResult!)
+                self.profileInfo["talkingPointArray"] = array
             }
         })
     }
     
     // combine all three talking points into a table and make a plus button to add more if wanted
-    @IBAction func pressedInt2() {
-        self.presentTextInputControllerWithSuggestions(nil, allowedInputMode: WKTextInputMode.Plain, completion: { (results) -> Void in
-            if results != nil && results!.count > 0 { //selection made
-                let aResult = results?[0] as? String
-                self.profileInfo["int2"] = aResult
-                self.InterestNum2.setTitle(aResult)
-            }
-        })
-    }
-    
-    // combine all three talking points into a table and make a plus button to add more if wanted
-    @IBAction func pressedInt3() {
-        self.presentTextInputControllerWithSuggestions(nil, allowedInputMode: WKTextInputMode.AllowEmoji, completion: { (results) -> Void in
-            if results != nil && results!.count > 0 { //selection made
-                let aResult = results?[0] as? String
-                self.profileInfo["int3"] = aResult
-                self.InterestNum3.setTitle(aResult)
-            }
-        })
-    }
+
     
     @IBAction func pressedEducationButton() {
         self.presentTextInputControllerWithSuggestions(nil, allowedInputMode: WKTextInputMode.Plain, completion: { (results) -> Void in
@@ -487,7 +512,6 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     // print happy on happy button if presseed as a test
     @IBAction func pressedHappy() {
         self.profileInfo["Vibe"] = "Happy"
-        happyButtonOutlet.setTitle(self.profileInfo["Vibe"])
         self.saveContactList()
         
         self.pathosButton.setHidden(false)
@@ -500,7 +524,6 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     // print neutral on happybutton as a test
     @IBAction func pressedNeutral() {
         self.profileInfo["Vibe"] = "Neutral"
-        happyButtonOutlet.setTitle(self.profileInfo["Vibe"])
         self.saveContactList()
         
         self.pathosButton.setHidden(false)
@@ -513,7 +536,6 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     // print unhappy on unhappy button as a test
     @IBAction func pressedUnhappy(){
         self.profileInfo["Vibe"] = "Unhappy"
-        unhappyButtonOutlet.setTitle(self.profileInfo["Vibe"])
         self.saveContactList()
         
         self.pathosButton.setHidden(false)
@@ -525,6 +547,7 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     
     
     @IBAction func maybeLater(){
+        self.profileInfo["Vibe"] = "maybeLater" 
         self.saveContactList()
         
         print(self.profileInfo)
@@ -537,25 +560,24 @@ class InterfaceController: WKInterfaceController, NSURLSessionDelegate, NSURLSes
     }
     
     //////////////////////////////
-
+    
     func saveContactList(){
         if(self.appGroupDefaults.dictionaryForKey("contactListInfo") != nil){
             print("contact list already existed")
             var contactListInfo = self.appGroupDefaults.dictionaryForKey("contactListInfo")!
-            let contactName = self.profileInfo["name"]
-            contactListInfo.updateValue(self.profileInfo, forKey: contactName!)
+            let contactName = self.profileInfo["name"] as! String
+            contactListInfo.updateValue(self.profileInfo, forKey: contactName)
             self.appGroupDefaults.setObject(contactListInfo, forKey: "contactListInfo")
-            //save the data that went through as a contact
             print(appGroupDefaults.dictionaryForKey("contactListInfo"))
-            self.session.transferUserInfo([contactName!:self.profileInfo])
+            self.session.transferUserInfo([contactName:self.profileInfo])
         }else{
             print("first addition")
             var contactListInfo: [String:AnyObject]
-            let contactName = self.profileInfo["name"]
-            contactListInfo = [contactName!:self.profileInfo]
+            let contactName = self.profileInfo["name"] as! String
+            contactListInfo = [contactName:self.profileInfo]
             self.appGroupDefaults.setObject(contactListInfo, forKey: "contactListInfo")
             print(self.appGroupDefaults.dictionaryForKey("contactListInfo"))
-            self.session.transferUserInfo([contactName!:self.profileInfo])
+            self.session.transferUserInfo([contactName:self.profileInfo])
         }
         
         if(self.profileInfo.isEmpty == false){
