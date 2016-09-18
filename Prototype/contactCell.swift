@@ -10,7 +10,9 @@ import UIKit
 
 class contactCell: UITableViewCell {
 
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameButton: UIButton!
+    
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,4 +25,9 @@ class contactCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func entersInfoForSegue(sender: AnyObject) {
+        var selectedName: String = self.nameButton.currentTitle!
+        self.defaults.setObject(selectedName, forKey: "contactSelection")
+        print(selectedName)
+    }
 }
